@@ -38,7 +38,7 @@ public class PublicacionesDao {
 //        Query j = hSession.createQuery("select idUniversidad from Universidades where nombre like'" + universidad + "' ");
 //        String idUni = j.getQueryString();
 //        hSession.clear();
-        Query q = hSession.createQuery("from Publicaciones where idCiudad='" + ciudad + "' ");
+        Query q = hSession.createQuery("from Publicaciones where nombreCiudad='" + ciudad + "' ");
         List<Publicaciones> lista = q.list();
         if (!lista.isEmpty()) {
             return lista.get(0);
@@ -49,7 +49,7 @@ public class PublicacionesDao {
 
     public List<Publicaciones> getList(String ciudad, String universidad) {
         hSession.clear();
-        Query q = hSession.createQuery("from Publicaciones where idCiudad like'" + ciudad + "' and idUniversidad like '" + universidad +"' ");
+        Query q = hSession.createQuery("from Publicaciones where nombreCiudad like'" + ciudad + "' and nombreUniversidad like '" + universidad +"' ");
         List<Publicaciones> lista = q.list();
         if (!lista.isEmpty()) {
             return lista;

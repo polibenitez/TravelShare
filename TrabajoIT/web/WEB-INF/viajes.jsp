@@ -37,8 +37,8 @@
                                 <th>Id</th>
                                 <th>Nick</th>
                                 <th>Id vehiculo</th>
-                                <th>id Ciudad</th>
-                                <th>id Universidad</th>
+                                <th>Nombre Ciudad</th>
+                                <th>Nombre Universidad</th>
                                 <th>Descripcion</th>
                                 <th>Fecha</th>
                                 <th>Hora</th>
@@ -58,10 +58,10 @@
                                     <bean:write name="l" property="idVehiculo" />
                                 </td>
                                 <td>
-                                    <bean:write name="l" property="idCiudad" />
+                                    <bean:write name="l" property="nombreCiudad" />
                                 </td>
                                 <td>
-                                    <bean:write name="l" property="idUniversidad" />
+                                    <bean:write name="l" property="nombreUniversidad" />
                                 </td>
                                 <td>
                                     <bean:write name="l" property="descripcion" />

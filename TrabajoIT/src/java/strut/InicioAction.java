@@ -13,9 +13,11 @@ import java.util.Iterator;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
 
 /**
  *
@@ -45,21 +47,29 @@ public class InicioAction extends org.apache.struts.action.Action {
         PublicacionesDao publicacionesDao = new PublicacionesDao();
         Publicaciones publicaciones = new Publicaciones();
         if (request.getParameter("buscar") != null) {
-            if (request.getParameter("ciudad").equals("") && request.getParameter("universidad").equals("") && request.getParameter("fecha").equals("")) {
+            if (request.getParameter("ciudad").trim().equals("") && request.getParameter("universidad").trim().equals("") && request.getParameter("fecha").trim().equals("")) {
+                ActionErrors errors = new ActionErrors();
+                errors.add("faltaV", new ActionMessage("errors.viajesVacio"));
+                saveErrors(request, errors);
                 return mapping.findForward(SUCCESS);
-            } else if (!request.getParameter("ciudad").equals("") && request.getParameter("universidad").equals("") && request.getParameter("fecha").equals("")) {
+            } else if (!request.getParameter("ciudad").equals("") && request.getParameter("universidad").trim().equals("") && request.getParameter("fecha").trim().equals("")) {
                 String universidad = "%";
                 List <Publicaciones> p = publicacionesDao.getList(request.getParameter("ciudad"), universidad);
-//                Iterator it=p.iterator();
-//                while(it.hasNext()){
-//                    
-//                }
-                request.setAttribute("lista", p);
-                return mapping.findForward(BUSCAR);
-            } else if (!request.getParameter("universidad").equals("") && request.getParameter("ciudad").equals("") && request.getParameter("fecha").equals("")) {
+                if(p!=null){
+                   request.setAttribute("lista", p);
+                    return mapping.findForward(BUSCAR); 
+                }else{
+                    return mapping.findForward(SUCCESS);
+                }
+            } else if (!request.getParameter("universidad").equals("") && request.getParameter("ciudad").trim().equals("") && request.getParameter("fecha").trim().equals("")) {
                 String ciudad = "%";
-                request.setAttribute("lista", publicacionesDao.get(ciudad, request.getParameter("universidad")));
-                return mapping.findForward(BUSCAR);
+                List <Publicaciones> p = publicacionesDao.getList(ciudad, request.getParameter("universidad"));
+                if(p!=null){
+                   request.setAttribute("lista", p);
+                    return mapping.findForward(BUSCAR); 
+                }else{
+                    return mapping.findForward(SUCCESS);
+                }
             } else {
                 return mapping.findForward(SUCCESS);
             }

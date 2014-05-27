@@ -53,6 +53,9 @@
                         <html:text property="fecha" styleClass="textbox" styleId="fecha"></html:text>
                         <html:submit value="Buscar" property="buscar" styleClass="boton"/>
                     </html:form>
+                        <div class="error">
+                            <html:errors property="faltaV"></html:errors>
+                        </div>
                 </main>
             </section>
 
