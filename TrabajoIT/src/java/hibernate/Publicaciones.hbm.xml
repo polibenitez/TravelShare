@@ -1,61 +1,33 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 26-may-2014 12:54:19 by Hibernate Tools 3.6.0 -->
+<!-- Generated 27-may-2014 21:52:52 by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
-    <class name="hibernate.Publicaciones" table="publicaciones" catalog="travelShare">
-<<<<<<< HEAD
+    <class name="hibernate.Publicaciones" table="publicaciones" catalog="travelshare">
         <id name="idPublicacion" type="java.lang.Integer">
-            <column name="id_publicacion"/>
-            <generator class="identity"/>
+            <column name="id_publicacion" />
+            <generator class="identity" />
         </id>
         <property name="nick" type="string">
-            <column length="20" name="nick" not-null="true"/>
+            <column name="nick" length="20" not-null="true" />
         </property>
         <property name="idVehiculo" type="int">
-            <column name="id_vehiculo" not-null="true"/>
+            <column name="id_vehiculo" not-null="true" />
         </property>
-        <property name="nombre_ciudad" type="string">
-            <column name="id_ciudad" not-null="true"/>
+        <property name="nombreCiudad" type="string">
+            <column name="nombre_ciudad" length="20" not-null="true" />
         </property>
-        <property name="nombre_universidad" type="string">
-            <column name="id_universidad" not-null="true"/>
+        <property name="nombreUniversidad" type="string">
+            <column name="nombre_universidad" length="20" not-null="true" />
         </property>
         <property name="descripcion" type="string">
-            <column length="500" name="descripcion" not-null="true"/>
+            <column name="descripcion" length="500" not-null="true" />
         </property>
         <property name="fecha" type="date">
-            <column length="10" name="fecha" not-null="true"/>
+            <column name="fecha" length="10" not-null="true" />
         </property>
         <property name="hora" type="string">
-            <column length="5" name="hora" not-null="true"/>
+            <column name="hora" length="5" not-null="true" />
         </property>
-=======
-       <id name="idPublicacion" type="java.lang.Integer">
-      <column name="id_publicacion"/>
-      <generator class="identity"/>
-    </id>
-    <property name="nick" type="string">
-      <column length="20" name="nick" not-null="true"/>
-    </property>
-    <property name="idVehiculo" type="int">
-      <column name="id_vehiculo" not-null="true"/>
-    </property>
-    <property name="nombre_ciudad" type="string">
-      <column name="id_ciudad" not-null="true"/>
-    </property>
-    <property name="nombre_universidad" type="string">
-      <column name="id_universidad" not-null="true"/>
-    </property>
-    <property name="descripcion" type="string">
-      <column length="500" name="descripcion" not-null="true"/>
-    </property>
-    <property name="fecha" type="date">
-      <column length="10" name="fecha" not-null="true"/>
-    </property>
-    <property name="hora" type="string">
-      <column length="5" name="hora" not-null="true"/>
-    </property>
->>>>>>> 5ae804315bebf7412839e6963398bebb59055b6c
     </class>
 </hibernate-mapping>
