@@ -1,0 +1,82 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 25-may-2014, 18:33:37
+    Author     : francisco
+*/
+
+body {
+    margin: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    color: #333;
+    background-color: #fff;
+}
+
+
+#paginacion {
+    border: 1px solid #CCC;
+    background-color: #E0E0E0;
+    padding: .5em;
+    overflow: hidden;
+}
+
+.derecha   { 
+    float: right; 
+}
+.izquierda { 
+    float: left;  
+}
+
+#logo {
+
+}
+
+#navegador ul{
+    list-style-type: none;
+    text-align: center;
+    padding-right: 40px;
+}
+#navegador li{
+    display: inline;
+    text-align: center;
+    margin: 0 10px 0 0;
+}
+#navegador li a {
+    padding: 2px 7px 2px 7px;
+    color: #666;
+    background-color: #eeeeee;
+    border: 1px solid #ccc;
+    text-decoration: none;
+}
+#navegador li a:hover{
+    background-color: #333333;
+    color: #ffffff;
+}
+
+#buscar form {
+    padding-top: 300px;
+    color: red;
+}
+
+#buscar input {
+    height: 38px;
+    width: 194px;
+}
+
+#buscar {
+    background-image:url("imagenes/logo.jpg");
+    background-repeat: repeat-x;
+    height: 313px;
+    position: absolute;
+    top: 50%; /* Buscamos el centro horizontal (relativo) del navegador */
+    left: 50%; /* Buscamos el centro vertical (relativo) del navegador */
+    width: 600 px; /* Definimos el ancho del objeto a centrar */
+    height: 400px; /* Definimos el alto del objeto a centrar */
+    margin-top: -320px; /* Restamos la mitad de la altura del objeto con un margin-top */
+    margin-left: -400px; /* Restamos la mitad de la anchura del objeto con un margin-left */
+}

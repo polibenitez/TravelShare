@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26-may-2014 12:54:19 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="hibernate.Ciudades" table="ciudades" catalog="travelShare">
+        <id name="idCiudad" type="java.lang.Integer">
+            <column name="id_ciudad" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="50" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

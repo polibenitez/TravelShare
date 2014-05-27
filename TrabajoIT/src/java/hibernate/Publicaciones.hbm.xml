@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26-may-2014 12:54:19 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="hibernate.Publicaciones" table="publicaciones" catalog="travelShare">
+        <id name="idPublicacion" type="java.lang.Integer">
+            <column name="id_publicacion" />
+            <generator class="identity" />
+        </id>
+        <property name="nick" type="string">
+            <column name="nick" length="20" not-null="true" />
+        </property>
+        <property name="idVehiculo" type="int">
+            <column name="id_vehiculo" not-null="true" />
+        </property>
+        <property name="idCiudad" type="int">
+            <column name="id_ciudad" not-null="true" />
+        </property>
+        <property name="idUniversidad" type="int">
+            <column name="id_universidad" not-null="true" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="500" not-null="true" />
+        </property>
+        <property name="fecha" type="date">
+            <column name="fecha" length="10" not-null="true" />
+        </property>
+        <property name="hora" type="string">
+            <column name="hora" length="5" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
