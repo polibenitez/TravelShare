@@ -50,9 +50,9 @@
                             
                 <section class="login">
                 <html:form action="/registrar" styleId="registro">
-                    <p>
-                        <html:errors></html:errors>
-                    </p>
+                        <div class="error">
+                            <html:errors property="falta"></html:errors>
+                        </div>
                         <p>
                             <html:select property="sexo" styleClass="sel">
                                 <html:option value="hombre">Hombre</html:option>
@@ -61,6 +61,9 @@
                         </p>
                         <p>
                             <html:text property="nick" styleClass="textbox" styleId="nick"></html:text>
+                                <div class="error">
+                            <html:errors property="nick"></html:errors>
+                        </div>
                         </p>
                         <p>
                             <html:text property="nombre" styleClass="textbox" styleId="nombre"></html:text>
@@ -73,6 +76,9 @@
                         </p>
                         <p>
                             <html:text property="pass" styleClass="textbox" styleId="pass"></html:text>
+                            <div class="error">
+                                <html:errors property="pass"></html:errors>
+                            </div>
                         </p>
                         <p>
                             <html:text property="repass" styleClass="textbox" styleId="repass"></html:text>

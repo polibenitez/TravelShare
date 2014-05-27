@@ -27,6 +27,16 @@ header{
     overflow: hidden;
 }
 
+
+.error{
+    font-style: italic;
+    color:red;
+}
+
+.error li{
+    list-style-type: none;
+}
+
 .derecha   { 
     float: right; 
 }

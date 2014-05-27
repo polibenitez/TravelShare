@@ -44,7 +44,7 @@ public class RegistrarAction extends org.apache.struts.action.Action {
         Usuarios usuarios = null;
 
         if (request.getParameter("registrar") != null) {
-            if (!request.getParameter("nick").equals("") && !request.getParameter("nombre").equals("") && !request.getParameter("apellidos").equals("") && !request.getParameter("email").equals("") && !request.getParameter("pass").equals("")) {
+            if (!request.getParameter("nick").trim().equals("") && !request.getParameter("nombre").equals("") && !request.getParameter("apellidos").equals("") && !request.getParameter("email").equals("") && !request.getParameter("pass").equals("")) {
                 if (request.getParameter("pass").equals(request.getParameter("repass"))) {
                     usuarios = usuariosDao.get(request.getParameter("nick"));
                     if (usuarios == null) {
@@ -59,17 +59,21 @@ public class RegistrarAction extends org.apache.struts.action.Action {
                         usuariosDao.create(user);
                         return mapping.findForward(SUCCESS);
                     } else {
-                        
+                        ActionErrors errors = new ActionErrors();
+                        errors.add("nick", new ActionMessage("errors.login"));
+                        saveErrors(request, errors);
                         return mapping.findForward(FAILURE);
                     }
                 } else {
                     ActionErrors errors = new ActionErrors();
-                    errors.add("usuario", new ActionMessage("errors.login"));
+                    errors.add("pass", new ActionMessage("errors.pass"));
+                    saveErrors(request, errors);
                     return mapping.findForward(FAILURE);
                 }
             } else {
                 ActionErrors errors = new ActionErrors();
-                errors.add("usuario", new ActionMessage("errors.login"));
+                errors.add("falta", new ActionMessage("errors.falta"));
+                saveErrors(request, errors);
                 return mapping.findForward(FAILURE);
             }
         } else {
