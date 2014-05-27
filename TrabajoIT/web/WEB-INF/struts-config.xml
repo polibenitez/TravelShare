@@ -36,9 +36,10 @@
         <action path="/login" type="strut.LoginAction">
             <forward name="success" path="/WEB-INF/login.jsp"/>
         </action>
-        <action input="/WEB-INF/login.jsp" name="CheckLoginActionForm" path="/checklogin" scope="request" type="strut.CheckLoginAction">
+        <action input="/WEB-INF/login.jsp" name="CheckLoginActionForm" path="/checklogin" scope="session" type="strut.CheckLoginAction">
             <forward name="admin" path="/WEB-INF/adminview.jsp"/>
             <forward name="user" path="/WEB-INF/userview.jsp"/>
+            <forward name="failure" path="/WEB-INF/login.jsp"/>
         </action>
         
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
