@@ -1,5 +1,5 @@
 package hibernate;
-// Generated 26-may-2014 12:54:18 by Hibernate Tools 3.6.0
+// Generated 27-may-2014 21:52:51 by Hibernate Tools 3.6.0
 
 
 import java.util.Date;
@@ -13,8 +13,8 @@ public class Publicaciones  implements java.io.Serializable {
      private Integer idPublicacion;
      private String nick;
      private int idVehiculo;
-     private String nombre_ciudad;
-     private String nombre_universidad;
+     private String nombreCiudad;
+     private String nombreUniversidad;
      private String descripcion;
      private Date fecha;
      private String hora;
@@ -22,11 +22,11 @@ public class Publicaciones  implements java.io.Serializable {
     public Publicaciones() {
     }
 
-    public Publicaciones(String nick, int idVehiculo, String nombre_ciudad, String nombre_universidad, String descripcion, Date fecha, String hora) {
+    public Publicaciones(String nick, int idVehiculo, String nombreCiudad, String nombreUniversidad, String descripcion, Date fecha, String hora) {
        this.nick = nick;
        this.idVehiculo = idVehiculo;
-       this.nombre_ciudad = nombre_ciudad;
-       this.nombre_universidad = nombre_universidad;
+       this.nombreCiudad = nombreCiudad;
+       this.nombreUniversidad = nombreUniversidad;
        this.descripcion = descripcion;
        this.fecha = fecha;
        this.hora = hora;
@@ -53,19 +53,19 @@ public class Publicaciones  implements java.io.Serializable {
     public void setIdVehiculo(int idVehiculo) {
         this.idVehiculo = idVehiculo;
     }
-    public String getNombre_ciudad() {
-        return this.nombre_ciudad;
+    public String getNombreCiudad() {
+        return this.nombreCiudad;
     }
     
-    public void setNombre_ciudad(String nombre_ciudad) {
-        this.nombre_ciudad = nombre_ciudad;
+    public void setNombreCiudad(String nombreCiudad) {
+        this.nombreCiudad = nombreCiudad;
     }
-    public String getNombre_universidad() {
-        return this.nombre_universidad;
+    public String getNombreUniversidad() {
+        return this.nombreUniversidad;
     }
     
-    public void setNombre_universidad(String nombre_universidad) {
-        this.nombre_universidad = nombre_universidad;
+    public void setNombreUniversidad(String nombreUniversidad) {
+        this.nombreUniversidad = nombreUniversidad;
     }
     public String getDescripcion() {
         return this.descripcion;

@@ -4,14 +4,14 @@
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/travelShare?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/travelshare?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.current_session_context_class">thread</property>
     <property name="hibernate.show_sql">true</property>
+    <mapping resource="hibernate/Vehiculo.hbm.xml"/>
+    <mapping resource="hibernate/Ciudades.hbm.xml"/>
     <mapping resource="hibernate/Publicaciones.hbm.xml"/>
     <mapping resource="hibernate/Usuarios.hbm.xml"/>
-    <mapping resource="hibernate/Ciudades.hbm.xml"/>
     <mapping resource="hibernate/Universidades.hbm.xml"/>
-    <mapping resource="hibernate/Vehiculo.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
