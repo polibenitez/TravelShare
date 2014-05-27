@@ -8,9 +8,7 @@ package hibernate;
  */
 public class Universidades  implements java.io.Serializable {
 
-
-     private Integer idUniversidad;
-     private String nombre;
+   private String nombre;
 
     public Universidades() {
     }
@@ -19,13 +17,7 @@ public class Universidades  implements java.io.Serializable {
        this.nombre = nombre;
     }
    
-    public Integer getIdUniversidad() {
-        return this.idUniversidad;
-    }
     
-    public void setIdUniversidad(Integer idUniversidad) {
-        this.idUniversidad = idUniversidad;
-    }
     public String getNombre() {
         return this.nombre;
     }
