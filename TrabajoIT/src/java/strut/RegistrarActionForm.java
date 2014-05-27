@@ -108,11 +108,10 @@ public class RegistrarActionForm extends org.apache.struts.action.ActionForm {
      * @param request The HTTP Request we are processing.
      * @return
      */
+    
     public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
         ActionErrors errors = new ActionErrors();
-        if(getNick() == null){
-            
-        }
+       
         return errors;
     }
 }

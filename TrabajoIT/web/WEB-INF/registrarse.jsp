@@ -40,7 +40,7 @@
                     </div>
                     <nav id="navegador" class="derecha">
                         <ul>
-                            <li><html:link action="/registro">Iniciar Sesi&oacute;n</html:link></li>
+                            <li><html:link action="/login.do">Iniciar Sesi&oacute;n</html:link></li>
                             <li><html:link action="/registro.do">Registrarse</html:link></li>
                             <li><html:link action="/inicio.do">C&oacute;mo funciona</html:link></li>
                         </ul>
