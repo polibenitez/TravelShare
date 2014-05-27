@@ -13,8 +13,8 @@ public class Publicaciones  implements java.io.Serializable {
      private Integer idPublicacion;
      private String nick;
      private int idVehiculo;
-     private int idCiudad;
-     private int idUniversidad;
+     private String nombre_ciudad;
+     private String nombre_universidad;
      private String descripcion;
      private Date fecha;
      private String hora;
@@ -22,11 +22,11 @@ public class Publicaciones  implements java.io.Serializable {
     public Publicaciones() {
     }
 
-    public Publicaciones(String nick, int idVehiculo, int idCiudad, int idUniversidad, String descripcion, Date fecha, String hora) {
+    public Publicaciones(String nick, int idVehiculo, String nombre_ciudad, String nombre_universidad, String descripcion, Date fecha, String hora) {
        this.nick = nick;
        this.idVehiculo = idVehiculo;
-       this.idCiudad = idCiudad;
-       this.idUniversidad = idUniversidad;
+       this.nombre_ciudad = nombre_ciudad;
+       this.nombre_universidad = nombre_universidad;
        this.descripcion = descripcion;
        this.fecha = fecha;
        this.hora = hora;
@@ -53,19 +53,19 @@ public class Publicaciones  implements java.io.Serializable {
     public void setIdVehiculo(int idVehiculo) {
         this.idVehiculo = idVehiculo;
     }
-    public int getIdCiudad() {
-        return this.idCiudad;
+    public String getNombre_ciudad() {
+        return this.nombre_ciudad;
     }
     
-    public void setIdCiudad(int idCiudad) {
-        this.idCiudad = idCiudad;
+    public void setNombre_ciudad(String nombre_ciudad) {
+        this.nombre_ciudad = nombre_ciudad;
     }
-    public int getIdUniversidad() {
-        return this.idUniversidad;
+    public String getNombre_universidad() {
+        return this.nombre_universidad;
     }
     
-    public void setIdUniversidad(int idUniversidad) {
-        this.idUniversidad = idUniversidad;
+    public void setNombre_universidad(String nombre_universidad) {
+        this.nombre_universidad = nombre_universidad;
     }
     public String getDescripcion() {
         return this.descripcion;

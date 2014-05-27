@@ -4,10 +4,7 @@
 <!-- Generated 26-may-2014 12:54:19 by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
     <class name="hibernate.Universidades" table="universidades" catalog="travelShare">
-        <id name="idUniversidad" type="java.lang.Integer">
-            <column name="id_universidad" />
-            <generator class="identity" />
-        </id>
+       
         <property name="nombre" type="string">
             <column name="nombre" length="50" not-null="true" />
         </property>

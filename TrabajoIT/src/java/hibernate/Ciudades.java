@@ -9,7 +9,6 @@ package hibernate;
 public class Ciudades  implements java.io.Serializable {
 
 
-     private Integer idCiudad;
      private String nombre;
 
     public Ciudades() {
@@ -19,13 +18,7 @@ public class Ciudades  implements java.io.Serializable {
        this.nombre = nombre;
     }
    
-    public Integer getIdCiudad() {
-        return this.idCiudad;
-    }
     
-    public void setIdCiudad(Integer idCiudad) {
-        this.idCiudad = idCiudad;
-    }
     public String getNombre() {
         return this.nombre;
     }
@@ -33,8 +26,6 @@ public class Ciudades  implements java.io.Serializable {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
-
 
 
 }
