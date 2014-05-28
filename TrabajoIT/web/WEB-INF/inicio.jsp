@@ -56,6 +56,15 @@
                         <div class="error">
                             <html:errors property="faltaV"></html:errors>
                         </div>
+                        <div class="error">
+                            <html:errors property="Nociudad"></html:errors>
+                        </div>
+                        <div class="error">
+                            <html:errors property="Nouni"></html:errors>
+                        </div>
+                        <div class="error">
+                            <html:errors property="Nohay"></html:errors>
+                        </div>
                 </main>
             </section>
 

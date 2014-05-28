@@ -19,6 +19,7 @@
     </head>
     <body>
         <logic:notEmpty name="lista" scope="request">
+            
             <div class="contenedor">
                 <header>
                     <div class="titulos">
@@ -33,29 +34,18 @@
                     <div id="tablaCrud">
                         <table>
                             <tr>
-                                <th>id otro</th>
-                                <th>Id</th>
                                 <th>Nick</th>
-                                <th>Id vehiculo</th>
                                 <th>Nombre Ciudad</th>
                                 <th>Nombre Universidad</th>
                                 <th>Descripcion</th>
                                 <th>Fecha</th>
                                 <th>Hora</th>
-                            </tr>
-                            <logic:iterate name="lista" id="l" indexId="cont">
+                            </tr>                        
+                                <logic:iterate name="lista" id="l">
                             <tr>
-                                <td>
-                                    <bean:write name="cont" />
-                                </td>
-                                <td>
-                                    <bean:write name="l" property="idPublicacion" />
-                                </td>
+
                                 <td>
                                     <bean:write name="l" property="nick" />
-                                </td>
-                                <td>
-                                    <bean:write name="l" property="idVehiculo" />
                                 </td>
                                 <td>
                                     <bean:write name="l" property="nombreCiudad" />

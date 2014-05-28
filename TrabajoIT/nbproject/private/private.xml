@@ -3,21 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+            <file>file:/Users/francisco/NetBeansProjects/Trabajo/TravelShare/TrabajoIT/src/java/dao/VehiculosDao.java</file>
+            <file>file:/Users/francisco/NetBeansProjects/Trabajo/TravelShare/TrabajoIT/src/java/hibernate/Vehiculo.java</file>
+            <file>file:/Users/francisco/NetBeansProjects/Trabajo/TravelShare/TrabajoIT/src/java/strut/InicioActionForm.java</file>
             <file>file:/Users/francisco/NetBeansProjects/Trabajo/TravelShare/TrabajoIT/web/index.jsp</file>
-=======
-=======
->>>>>>> FETCH_HEAD
-=======
->>>>>>> FETCH_HEAD
-            <file>file:/C:/Users/manolo/Documents/GitHub/TravelShare/TrabajoIT/src/java/dao/HibernateUtil.java</file>
-            <file>file:/C:/Users/manolo/Documents/GitHub/TravelShare/TrabajoIT/src/java/hibernate/Ciudades.java</file>
-            <file>file:/C:/Users/manolo/Documents/GitHub/TravelShare/TrabajoIT/src/java/hibernate/Ciudades.hbm.xml</file>
-            <file>file:/C:/Users/manolo/Documents/GitHub/TravelShare/TrabajoIT/src/java/hibernate/Publicaciones.hbm.xml</file>
-            <file>file:/C:/Users/manolo/Documents/GitHub/TravelShare/TrabajoIT/src/java/hibernate/Publicaciones.java</file>
->>>>>>> FETCH_HEAD
+            <file>file:/Users/francisco/NetBeansProjects/Trabajo/TravelShare/TrabajoIT/web/WEB-INF/viajes.jsp</file>
+            <file>file:/Users/francisco/NetBeansProjects/Trabajo/TravelShare/TrabajoIT/src/java/hibernate/Publicaciones.java</file>
+            <file>file:/Users/francisco/NetBeansProjects/Trabajo/TravelShare/TrabajoIT/web/WEB-INF/struts-config.xml</file>
+            <file>file:/Users/francisco/NetBeansProjects/Trabajo/TravelShare/TrabajoIT/src/java/strut/RegistroAction.java</file>
+            <file>file:/Users/francisco/NetBeansProjects/Trabajo/TravelShare/TrabajoIT/web/CrearPublicacion.jsp</file>
+            <file>file:/Users/francisco/NetBeansProjects/Trabajo/TravelShare/TrabajoIT/src/java/dao/PublicacionesDao.java</file>
+            <file>file:/Users/francisco/NetBeansProjects/Trabajo/TravelShare/TrabajoIT/src/java/strut/InicioAction.java</file>
+            <file>file:/Users/francisco/NetBeansProjects/Trabajo/TravelShare/TrabajoIT/web/WEB-INF/inicio.jsp</file>
+            <file>file:/Users/francisco/NetBeansProjects/Trabajo/TravelShare/TrabajoIT/src/java/strut/LoginAction.java</file>
+            <file>file:/Users/francisco/NetBeansProjects/Trabajo/TravelShare/TrabajoIT/src/java/strut/RegistrarActionForm.java</file>
         </group>
     </open-files>
 </project-private>
