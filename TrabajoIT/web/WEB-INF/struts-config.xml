@@ -7,6 +7,10 @@
 
 <struts-config>
     <form-beans>
+        <form-bean name="CiudadesActionForm" type="strut.CiudadesActionForm"/>
+        <form-bean name="UniversidadesActionForm" type="strut.UniversidadesActionForm"/>
+        <form-bean name="CiudadesActionForm" type="strut.CiudadesActionForm"/>
+        <form-bean name="CiudadActionForm" type="strut.CiudadActionForm"/>
         <form-bean name="CheckLoginActionForm" type="strut.CheckLoginActionForm"/>
         <form-bean name="RegistrarActionForm" type="strut.RegistrarActionForm"/>
         <form-bean name="InicioActionForm" type="strut.InicioActionForm"/>
@@ -37,10 +41,20 @@
             <forward name="success" path="/WEB-INF/login.jsp"/>
         </action>
         <action input="/WEB-INF/login.jsp" name="CheckLoginActionForm" path="/checklogin" scope="session" type="strut.CheckLoginAction">
-            <forward name="admin" path="/WEB-INF/adminview.jsp"/>
+            <forward name="admin" path="/WEB-INF/gestion.jsp"/>
             <forward name="user" path="/WEB-INF/userview.jsp"/>
-            <forward name="failure" path="/WEB-INF/login.jsp"/>
+            <forward name="failure" path="/login"/>
         </action>
+        
+        <action input="/WEB-INF/gestion.jsp" name="UniversidadesActionForm" path="/universidades" scope="request" type="strut.universidadesAction">
+            <forward name="success" path="/WEB-INF/userview.jsp"/>
+        </action>
+        <action path="/ciudadesAction" type="strut.CiudadesAction">
+            <forward name="success" path="/WEB-INF/ciudadesview.jsp"/>
+        </action>
+        
+
+        
         
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
     </action-mappings>

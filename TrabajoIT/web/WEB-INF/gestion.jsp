@@ -28,8 +28,8 @@
                     <html:img src="imagenes/guia-menu.png" />
                 </div>
                 <div class="entrar">
-
-                    <a href="./salir.php">Salir</a>
+                    <a><html:link action="/inicio.do">Salir</html:link></a>
+                    
                 </div>
             </header>
             <section class="login">
@@ -37,7 +37,7 @@
                     <div class="caja" onclick="irAPagina('gestion-edificios')">
                         <div class="caja-top">
                             <div class="caja-titulo">Ciudades</div>
-                            <div class="caja-descrip">Gestionar Ciudades</div>
+                            <div class="caja-descrip"><html:link action="/ciudadesAction.do">Gestionar Ciudades</html:link></div>
                         </div>
                         <div class="caja-imagen">
                             <img draggable="false" class="caja-imagen-img" src="imagenes/gestion-img/edificio.jpg">
@@ -47,41 +47,24 @@
                     <div class="caja" onclick="irAPagina('gestion-profesores')">
                         <div class="caja-top">
                             <div class="caja-titulo">Usuarios</div>
-                            <div class="caja-descrip">Gestionar Usuarios</div>
+                            <div class="caja-descrip"><html:link action="/universidades.do">Gestionar Usuarios</html:link></div>
                         </div>
                         <div class="caja-imagen">
                             <img draggable="false" class="caja-imagen-img" src="imagenes/gestion-img/profesor.png">
                         </div>
 
                     </div>
-                    <div class="caja" onclick="irAPagina('gestion-asignaturas')">
-                        <div class="caja-top">
-                            <div class="caja-titulo">Publicaciones</div>
-                            <div class="caja-descrip">Gestionar Publicaciones</div>
-                        </div>
-                        <div class="caja-imagen">
-                            <img draggable="false" class="caja-imagen-img" src="imagenes/gestion-img/asignatura.jpg">
-                        </div>
-
-                    </div>
+                    
                     <div class="caja" onclick="irAPagina('gestion-aulas')">
                         <div class="caja-top">
                             <div class="caja-titulo">Universidades</div>
-                            <div class="caja-descrip">Gestionar Universidades</div>
+                            <div class="caja-descrip"><html:link action="/universidades.do">Gestionar Universidades</html:link></div>
                         </div>
                         <div class="caja-imagen">
                             <img draggable="false" class="caja-imagen-img" src="imagenes/gestion-img/aula.jpg">
                         </div>
                     </div>
-                    <div class="caja" onclick="irAPagina('gestion-lugares')">
-                        <div class="caja-top">
-                            <div class="caja-titulo">Veh&iacute;culos</div>
-                            <div class="caja-descrip">Gestionar Veh&iacute;culos</div>
-                        </div>
-                        <div class="caja-imagen">
-                            <img draggable="false" class="caja-imagen-img" src="imagenes/gestion-img/lugar.jpg">
-                        </div>
-                    </div>
+                    
                 </div>
             </section>
         </div>
