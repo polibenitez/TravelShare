@@ -57,6 +57,16 @@ public class PublicacionesDao {
         return null;
     }
     
+    public List<Publicaciones> getListUser(String nombre) {
+        hSession.clear();
+        Query q = hSession.createQuery("from Publicaciones where nick like'" + nombre +"' ");
+        List<Publicaciones> lista = q.list();
+        if (!lista.isEmpty()) {
+            return lista;
+        }
+        return null;
+    }
+    
 
     public void delete(Publicaciones v) {
 

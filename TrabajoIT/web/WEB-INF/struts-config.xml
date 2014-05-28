@@ -7,6 +7,7 @@
 
 <struts-config>
     <form-beans>
+        <form-bean name="PublicacionesActionForm" type="strut.PublicacionesActionForm"/>
         <form-bean name="CiudadesActionForm" type="strut.CiudadesActionForm"/>
         <form-bean name="UniversidadesActionForm" type="strut.UniversidadesActionForm"/>
         <form-bean name="CiudadesActionForm" type="strut.CiudadesActionForm"/>
@@ -51,6 +52,9 @@
         </action>
         <action path="/ciudadesAction" type="strut.CiudadesAction">
             <forward name="success" path="/WEB-INF/ciudadesview.jsp"/>
+        </action>
+        <action input="/WEB-INF/CrearPublicacion.jsp" name="PublicacionesActionForm" path="/publicaciones" scope="request" type="strut.PublicacionesAction">
+            <forward name="success" path="/WEB-INF/CrearPublicacion.jsp"/>
         </action>
         
 

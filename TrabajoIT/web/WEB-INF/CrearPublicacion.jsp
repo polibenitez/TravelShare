@@ -17,78 +17,78 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="style.css">
         <title>JSP Page</title>
-        <script type="text/javascript" >
-            $(function() {
-                $("#nick").attr("placeholder", "Nick");
-                $("#nombre").attr("placeholder", "Nombre");
-                $("#apellidos").attr("placeholder", "Apellidos");
-                $("#correo").attr("placeholder", "Correo").attr("type", "email");
-                $("#pass").attr("placeholder", "Contraseña").attr("type", "password");
-                $("#repass").attr("placeholder", "Reescribir Contraseña").attr("type", "password");
-            });
-        </script>
     </head>
     <body>
         <div class="contenedor">
             <header>
                 <div class="titulos">
                     <h1>Viajes</h1>
-                    <html:link action="/inicio.do" styleClass="enCabecera">Principal</html:link>
-                        <html:img src="imagenes/guia-menu.png" />
-                        Registrarse
-                        <html:img src="imagenes/guia-menu.png" />
-                    </div>
-                    <nav id="navegador" class="derecha">
-                        <ul>
-                            <li><html:link action="/login.do">Iniciar Sesi&oacute;n</html:link></li>
-                            <li><html:link action="/registro.do">Registrarse</html:link></li>
-                            <li><html:link action="/inicio.do">C&oacute;mo funciona</html:link></li>
-                        </ul>
-                    </nav>
-                </header>
-                
-                            
-                <section class="login">
-                <form action="/registrar" styleId="registro">
-                        <div class="error">
-                            <html:errors property="falta"></html:errors>
-                        </div>
-                        <p>
-                            <html:select property="sexo" styleClass="sel">
-                                <html:option value="hombre">Hombre</html:option>
-                                <html:option value="mujer">Mujer</html:option>
-                            </html:select>
-                        </p>
-                        <p>
-                            <html:text property="nick" styleClass="textbox" styleId="nick"></html:text>
-                                <div class="error">
-                            <html:errors property="nick"></html:errors>
-                        </div>
-                        </p>
-                        <p>
-                            <html:text property="nombre" styleClass="textbox" styleId="nombre"></html:text>
-                        </p>
-                        <p>
-                            <html:text property="apellidos" styleClass="textbox" styleId="apellidos"></html:text>
-                        </p>
-                        <p>
-                            <html:text property="email" styleClass="textbox" styleId="correo"></html:text>
-                        </p>
-                        <p>
-                            <html:text property="pass" styleClass="textbox" styleId="pass"></html:text>
-                            <div class="error">
-                                <html:errors property="pass"></html:errors>
-                            </div>
-                        </p>
-                        <p>
-                            <html:text property="repass" styleClass="textbox" styleId="repass"></html:text>
-                        </p>
-                        <p>
-                            <html:submit value="Registrar" property="registrar" styleClass="boton"/>
-                        </p>
-                    </form>
-                </section>
+                    <a href="inicio.jsp">Principal</a>
+                    <img src="images/guia-menu.png">
+                    Gesti&oacute;n Publicaciones
+                    <img src="images/guia-menu.png">
+                </div>
+            </header>
+            <section class="login">
+                <div id="tablaCrud">
+                <html:form action="/publicaciones" >
+                    <table>
+                        <tr>
+                            <th>id</th>
+                            <th>Nick</th>
+                            <th>id</th>
+                            <th>id</th>
+                            <th>id</th>
+                            <th>id</th>
+                            <th>id</th>
+                            <th>Hora</th>
+                            <th colspan="2">
+                                <html:submit property="add" value="add"></html:submit>
+                                </th>
+                            </tr>
+                    </html:form>
+                    <logic:iterate name="lista" id="lista">
+                        <html:form action="/publicaciones" >
+                            <tr>
+                                <td><html:text name="lista" property="idPublicacion" /></td>
+                                <td><html:text name="lista" property="nick" /></td>
+                                <td><html:text name="lista" property="idVehiculo" /></td>
+                                <td><html:text name="lista" property="nombreCiudad" /></td>
+                                <td><html:text name="lista" property="nombreUniversidad" /></td>
+                                <td><html:text name="lista" property="descripcion" /></td>
+                                <td><html:text name="lista" property="fecha" /></td>
+                                <td><html:text name="lista" property="hora" /></td>
+                                <td><html:submit property="update" value="Editar" ></html:submit></td>
+                            </html:form>
+                                <html:form action="/publicaciones" >
+                                <td><html:submit property="delete" value="Eliminar" ></html:submit></td>
+                                </tr>
+                        </html:form>
+                    </logic:iterate>
+                </table>
 
-            </div>
+                <%
+                    if (request.getParameter("add") != null) {
+                        request.removeAttribute("add");
+                %>
+                <html:form action="/publicaciones">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><html:text property="nick" /></td>
+                                <td><html:text property="nombre" /></td>
+                                <td><html:text property="pass" /></td>
+                                <html:hidden property="save" value="si" />
+                                <td><html:image styleClass="boton1" src="images/save.png"/></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </html:form>
+
+                <% }%>
+                <p>Actualizar la p&aacute;gina por cada modifiaci&oacute;n</p>
+                </div>
+            </section>  
+        </div>
         </body>
 </html:html>
