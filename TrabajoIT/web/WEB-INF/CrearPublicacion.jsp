@@ -75,11 +75,16 @@
                     <table>
                         <tbody>
                             <tr>
-                                <td><html:text property="nick" /></td>
-                                <td><html:text property="nombre" /></td>
-                                <td><html:text property="pass" /></td>
+                                <td><html:text name="lista" property="idPublicacion" /></td>
+                                <td><html:text name="lista" property="nick" /></td>
+                                <td><html:text name="lista" property="idVehiculo" /></td>
+                                <td><html:text name="lista" property="nombreCiudad" /></td>
+                                <td><html:text name="lista" property="nombreUniversidad" /></td>
+                                <td><html:text name="lista" property="descripcion" /></td>
+                                <td><html:text name="lista" property="fecha" /></td>
+                                <td><html:text name="lista" property="hora" /></td>
                                 <html:hidden property="save" value="si" />
-                                <td><html:image styleClass="boton1" src="images/save.png"/></td>
+                                <td><html:image styleClass="boton1" src="imagenes/save.png"/></td>
                             </tr>
                         </tbody>
                     </table>

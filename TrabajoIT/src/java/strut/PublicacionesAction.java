@@ -42,8 +42,24 @@ public class PublicacionesAction extends org.apache.struts.action.Action {
         PublicacionesDao publicacionesDao = new PublicacionesDao();
         Publicaciones publicaciones = new Publicaciones();
         
+       // request.getSession().getAttribute("");
+        
         List <Publicaciones> p = publicacionesDao.getListUser("pakesteige");
         request.setAttribute("lista", p);
+        
+        if(request.getParameter("save")!=null){
+            publicaciones.setNick(request.getParameter("nick"));
+            publicaciones.setIdVehiculo(Integer.parseInt(request.getParameter("idVehiculo")));
+            publicaciones.setNombreCiudad(request.getParameter("nombreCiudad"));
+            publicaciones.setNombreUniversidad("nombreUniversidad");
+            publicaciones.setFecha(null);
+            publicaciones.setHora(request.getParameter("fecha"));
+            publicacionesDao.create(publicaciones);
+            
+        }else if(request.getParameter("delete")!=null){
+            
+        }
+        
         return mapping.findForward(SUCCESS);
     }
 }
