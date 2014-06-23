@@ -8,6 +8,8 @@ package strut;
 
 import dao.PublicacionesDao;
 import hibernate.Publicaciones;
+import hibernate.Usuarios;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -43,21 +45,26 @@ public class PublicacionesAction extends org.apache.struts.action.Action {
         Publicaciones publicaciones = new Publicaciones();
         
        // request.getSession().getAttribute("");
-        
-        List <Publicaciones> p = publicacionesDao.getListUser("pakesteige");
+        Usuarios u = (Usuarios)request.getSession().getAttribute("USER");
+        List <Publicaciones> p = publicacionesDao.getListUser(u.getNick());
+        if(p==null){
+            p = new ArrayList<Publicaciones>();
+        }
         request.setAttribute("lista", p);
         
         if(request.getParameter("save")!=null){
-            publicaciones.setNick(request.getParameter("nick"));
+            
+            publicaciones.setNick(u.getNick());
             publicaciones.setIdVehiculo(Integer.parseInt(request.getParameter("idVehiculo")));
             publicaciones.setNombreCiudad(request.getParameter("nombreCiudad"));
             publicaciones.setNombreUniversidad("nombreUniversidad");
-            publicaciones.setFecha(null);
+            
             publicaciones.setHora(request.getParameter("fecha"));
             publicacionesDao.create(publicaciones);
             
         }else if(request.getParameter("delete")!=null){
-            
+            publicaciones = publicacionesDao.getBorrar(Integer.parseInt(request.getParameter("delete")));
+            publicacionesDao.delete(publicaciones);
         }
         
         return mapping.findForward(SUCCESS);

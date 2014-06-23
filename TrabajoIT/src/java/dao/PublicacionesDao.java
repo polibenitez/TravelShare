@@ -46,6 +46,21 @@ public class PublicacionesDao {
         return null;
     }
     
+        public Publicaciones getBorrar(int id) {
+        hSession.clear();
+//        Query i = hSession.createQuery("select idCiudad from Ciudades where nombre like '" + ciudad + "' ");
+//        String idCiu = i.getQueryString();
+//        hSession.clear();
+//        Query j = hSession.createQuery("select idUniversidad from Universidades where nombre like'" + universidad + "' ");
+//        String idUni = j.getQueryString();
+//        hSession.clear();
+        Query q = hSession.createQuery("from Publicaciones where idPublicaciones='" + id + "' ");
+        List<Publicaciones> lista = q.list();
+        if (!lista.isEmpty()) {
+            return lista.get(0);
+        }
+        return null;
+    }
 
     public List<Publicaciones> getList(String ciudad, String universidad) {
         hSession.clear();

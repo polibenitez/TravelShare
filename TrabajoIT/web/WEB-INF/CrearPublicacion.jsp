@@ -34,13 +34,13 @@
                 <html:form action="/publicaciones" >
                     <table>
                         <tr>
-                            <th>id</th>
+                            <th>id publicacion</th>
                             <th>Nick</th>
-                            <th>id</th>
-                            <th>id</th>
-                            <th>id</th>
-                            <th>id</th>
-                            <th>id</th>
+                            <th>id veh&iacute;culo</th>
+                            <th>nombre ciudad</th>
+                            <th>nombre universidad</th>
+                            <th>descripci&oacute;n</th>
+                            <th>fecha</th>
                             <th>Hora</th>
                             <th colspan="2">
                                 <html:submit property="add" value="add"></html:submit>
