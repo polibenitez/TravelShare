@@ -21,7 +21,8 @@
                     </th>
                 </tr>
                 </html:form>
-                <logic:iterate name="lista" id="lista">
+                <logic:notEmpty name="lista" >
+                    <logic:iterate name="lista" id="lista">
                     <html:form action="/ciudadesAction.do" >
                     <tr>
                         
@@ -31,6 +32,8 @@
                     </tr>
                     </html:form>
                 </logic:iterate>
+                </logic:notEmpty>
+                
             </table>
         
         <%
