@@ -6,7 +6,6 @@
 
 package strut;
 
-import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionErrors;
@@ -17,23 +16,20 @@ import org.apache.struts.action.ActionMessage;
  *
  * @author francisco
  */
-public class PublicacionesActionForm extends org.apache.struts.action.ActionForm {
+public class VehiculoActionForm extends org.apache.struts.action.ActionForm {
     
-     private Integer idPublicacion;
+     private Integer idVehiculo;
      private String nick;
-     private int idVehiculo;
-     private String nombreCiudad;
-     private String nombreUniversidad;
+     private String modelo;
+     private String marca;
      private String descripcion;
-     private Date fecha;
-     private String hora;
 
-    public Integer getIdPublicacion() {
-        return idPublicacion;
+    public Integer getIdVehiculo() {
+        return idVehiculo;
     }
 
-    public void setIdPublicacion(Integer idPublicacion) {
-        this.idPublicacion = idPublicacion;
+    public void setIdVehiculo(Integer idVehiculo) {
+        this.idVehiculo = idVehiculo;
     }
 
     public String getNick() {
@@ -44,28 +40,20 @@ public class PublicacionesActionForm extends org.apache.struts.action.ActionForm
         this.nick = nick;
     }
 
-    public int getIdVehiculo() {
-        return idVehiculo;
+    public String getModelo() {
+        return modelo;
     }
 
-    public void setIdVehiculo(int idVehiculo) {
-        this.idVehiculo = idVehiculo;
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
     }
 
-    public String getNombreCiudad() {
-        return nombreCiudad;
+    public String getMarca() {
+        return marca;
     }
 
-    public void setNombreCiudad(String nombreCiudad) {
-        this.nombreCiudad = nombreCiudad;
-    }
-
-    public String getNombreUniversidad() {
-        return nombreUniversidad;
-    }
-
-    public void setNombreUniversidad(String nombreUniversidad) {
-        this.nombreUniversidad = nombreUniversidad;
+    public void setMarca(String marca) {
+        this.marca = marca;
     }
 
     public String getDescripcion() {
@@ -76,28 +64,11 @@ public class PublicacionesActionForm extends org.apache.struts.action.ActionForm
         this.descripcion = descripcion;
     }
 
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
-
-    public String getHora() {
-        return hora;
-    }
-
-    public void setHora(String hora) {
-        this.hora = hora;
-    }
-
-    
 
     /**
      *
      */
-    public PublicacionesActionForm() {
+    public VehiculoActionForm() {
         super();
         // TODO Auto-generated constructor stub
     }

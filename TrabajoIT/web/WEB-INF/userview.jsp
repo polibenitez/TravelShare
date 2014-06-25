@@ -30,7 +30,7 @@
             </header>
             <section class="login">
                 <div class="cajas">
-                    <div class="caja" onclick="irAPagina('gestion-asignaturas')">
+                    <div class="caja">
                         <div class="caja-top">
                             <div class="caja-titulo">Publicaciones</div>
                            <html:link action="/publicaciones.do">Gestionar Publicaciones</html:link>
@@ -39,10 +39,10 @@
                             <img draggable="false" class="caja-imagen-img" src="imagenes/gestion-img/asignatura.jpg">
                         </div>
                     </div>
-                    <div class="caja" onclick="irAPagina('gestion-lugares')">
+                    <div class="caja">
                         <div class="caja-top">
                             <div class="caja-titulo">Veh&iacute;culos</div>
-                            <div class="caja-descrip">Gestionar Veh&iacute;culos</div>
+                        <html:link action="/vehiculo.do">Gestionar Veh&iacute;culos</html:link>
                         </div>
                         <div class="caja-imagen">
                             <img draggable="false" class="caja-imagen-img" src="imagenes/gestion-img/lugar.jpg">

@@ -1,6 +1,6 @@
 <%-- 
-    Document   : CrearPublicacion
-    Created on : 27-may-2014, 23:21:41
+    Document   : CrearVehiculo
+    Created on : 25-jun-2014, 15:42:19
     Author     : francisco
 --%>
 
@@ -22,46 +22,40 @@
         <div class="contenedor">
             <header>
                 <div class="titulos">
-                    <h1>Publicaciones</h1>
+                    <h1>Veh&iacute;culos</h1>
                     <html:link action="checklogin.do" styleClass="enCabecera">Gesti&oacute;n</html:link>
                     <html:img src="imagenes/guia-menu.png" />
-                    Publicaciones              
+                    Veh&iacute;culos              
                 </div>
             </header>
             <section class="login">
                 <div id="tablaCrud">
-                    <html:form action="/publicaciones.do" >
+                    <html:form action="/vehiculo.do" >
                         <table>
                             <tr>
-                                <th>id publicacion</th>
-                                <th>Nick</th>
                                 <th>id veh&iacute;culo</th>
-                                <th>nombre ciudad</th>
-                                <th>nombre universidad</th>
+                                <th>Nick</th>
+                                <th>marca</th>
+                                <th>modelo</th>
                                 <th>descripci&oacute;n</th>
-                                <th>fecha</th>
-                                <th>Hora</th>
                                 <th colspan="2">
                                     <html:submit property="add" value="add"></html:submit>
                                     </th>
                                 </tr>
                         </html:form>
                         <logic:iterate name="lista" id="lista">
-                            <html:form action="/publicaciones.do" >
+                            <html:form action="/vehiculo.do" >
                                 <tr>
-                                    <td><html:text name="lista" property="idPublicacion" /></td>
-                                    <td><html:text name="lista" property="nick" /></td>
-                                    <td><html:text name="lista" property="idVehiculo" /></td>
-                                    <td><html:text name="lista" property="nombreCiudad" /></td>
-                                    <td><html:text name="lista" property="nombreUniversidad" /></td>
+                                    <td><html:text name="lista" property="idVehiculo" disabled="true"/></td>
+                                    <td><html:text name="lista" property="nick" disabled="true"/></td>
+                                    <td><html:text name="lista" property="marca" /></td>
+                                    <td><html:text name="lista" property="modelo" /></td>
                                     <td><html:text name="lista" property="descripcion" /></td>
-                                    <td><html:text name="lista" property="fecha" /></td>
-                                    <td><html:text name="lista" property="hora" /></td>
-                                    <html:hidden property="update" value="${lista.idPublicacion}"/>
+                                    <html:hidden property="update" value="${lista.idVehiculo}"/>
                                     <td><html:image styleClass="boton1" src="imagenes/save.png"/></td>
                                 </html:form>
-                                <html:form action="/publicaciones" >
-                                    <html:hidden property="delete" value="${lista.idPublicacion}"/>
+                                <html:form action="/vehiculo" >
+                                    <html:hidden property="delete" value="${lista.idVehiculo}"/>
                                     <td><html:image styleClass="boton1" src="imagenes/save.png"/></td>
                                 </tr>
                             </html:form>
@@ -72,18 +66,15 @@
                         if (request.getParameter("add") != null) {
                             request.removeAttribute("add");
                     %>
-                    <html:form action="/publicaciones.do">
+                    <html:form action="/vehiculo.do">
                         <table>
                             <tbody>
                                 <tr>
-                                    <td><html:text name="lista" property="idPublicacion" /></td>
-                                    <td><html:text name="lista" property="nick" /></td>
-                                    <td><html:text name="lista" property="idVehiculo" /></td>
-                                    <td><html:text name="lista" property="nombreCiudad" /></td>
-                                    <td><html:text name="lista" property="nombreUniversidad" /></td>
+                                    <td><html:text name="lista" property="idVehiculo" disabled="true"/></td>
+                                    <td><html:text name="lista" property="nick" disabled="true"/></td>
+                                    <td><html:text name="lista" property="marca" /></td>
+                                    <td><html:text name="lista" property="modelo" /></td>
                                     <td><html:text name="lista" property="descripcion" /></td>
-                                    <td><html:text name="lista" property="fecha" /></td>
-                                    <td><html:text name="lista" property="hora" /></td>
                                     <td><html:submit property="save" value="Añadir" ></html:submit></td>
                                     </tr>
                                 </tbody>

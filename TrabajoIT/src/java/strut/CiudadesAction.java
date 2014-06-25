@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package strut;
 
 import dao.CiudadesDao;
@@ -37,7 +36,7 @@ public class CiudadesAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-         CiudadesDao dao = new CiudadesDao();
+        CiudadesDao dao = new CiudadesDao();
         Ciudades user = new Ciudades();
         request.setAttribute("lista", dao.getList());
         if (request.getParameter("delete") != null) {
@@ -60,7 +59,6 @@ public class CiudadesAction extends org.apache.struts.action.Action {
 
         } else if (request.getParameter("save") != null) {
 
-            
             user.setNombre(request.getParameter("nombre"));
 
             dao.create(user);
