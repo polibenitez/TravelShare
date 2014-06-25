@@ -22,18 +22,10 @@
         <div class="contenedor">
             <header>
                 <div class="titulos">
-                    <h1>Viajes</h1>
-<<<<<<< HEAD
+                    <h1>Publicaciones</h1>
                     <html:link action="userview.jsp" styleClass="enCabecera">Gesti&oacute;n</html:link>
                     <html:img src="imagenes/guia-menu.png" />
-                    Publicaciones
-                    <html:img src="imagenes/guia-menu.png" />
-=======
-                    <html:link action="/inicio.do">Principal</html:link>
-                    <img src="images/guia-menu.png">
-                    Gesti&oacute;n Publicaciones
-                    <img src="images/guia-menu.png">
->>>>>>> FETCH_HEAD
+                    Publicaciones              
                 </div>
             </header>
             <section class="login">
