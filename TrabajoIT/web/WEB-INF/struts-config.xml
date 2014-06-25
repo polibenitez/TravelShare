@@ -44,7 +44,7 @@
         <action input="/WEB-INF/login.jsp" name="CheckLoginActionForm" path="/checklogin" scope="session" type="strut.CheckLoginAction">
             <forward name="admin" path="/WEB-INF/gestion.jsp"/>
             <forward name="user" path="/WEB-INF/userview.jsp"/>
-            <forward name="failure" path="/login"/>
+            <forward name="failure" path="/login.do"/>
         </action>
         
         <action input="/WEB-INF/gestion.jsp" name="UniversidadesActionForm" path="/universidades" scope="request" type="strut.universidadesAction">

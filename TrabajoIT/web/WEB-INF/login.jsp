@@ -16,7 +16,7 @@
                 <div class="titulos">
                     <h1>Viajes</h1>
                     <html:errors></html:errors>
-                        <a href="inicio.jsp">Principal</a>
+                    <html:link action="/inicio.do">Principal</html:link>
                         <img src="imagenes/guia-menu.png">
                         Login
                         <img src="imagenes/guia-menu.png">
@@ -35,6 +35,9 @@
                             
                             </fieldset>
                             <html:errors></html:errors>
+                            <logic:notEmpty name="msg">
+                    <bean:write name="msg" />
+                </logic:notEmpty>
                     </html:form>   
                 </div>
             </section>
