@@ -54,7 +54,7 @@ public class PublicacionesDao {
 //        Query j = hSession.createQuery("select idUniversidad from Universidades where nombre like'" + universidad + "' ");
 //        String idUni = j.getQueryString();
 //        hSession.clear();
-        Query q = hSession.createQuery("from Publicaciones where idPublicaciones='" + id + "' ");
+        Query q = hSession.createQuery("from Publicaciones where id_Publicacion ='" + id + "' ");
         List<Publicaciones> lista = q.list();
         if (!lista.isEmpty()) {
             return lista.get(0);

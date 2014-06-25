@@ -23,77 +23,78 @@
             <header>
                 <div class="titulos">
                     <h1>Viajes</h1>
-                    <a href="inicio.jsp">Principal</a>
-                    <img src="images/guia-menu.png">
-                    Gesti&oacute;n Publicaciones
-                    <img src="images/guia-menu.png">
+                    <html:link action="userview.jsp" styleClass="enCabecera">Gesti&oacute;n</html:link>
+                    <html:img src="imagenes/guia-menu.png" />
+                    Publicaciones
+                    <html:img src="imagenes/guia-menu.png" />
                 </div>
             </header>
             <section class="login">
                 <div id="tablaCrud">
-                <html:form action="/publicaciones" >
-                    <table>
-                        <tr>
-                            <th>id publicacion</th>
-                            <th>Nick</th>
-                            <th>id veh&iacute;culo</th>
-                            <th>nombre ciudad</th>
-                            <th>nombre universidad</th>
-                            <th>descripci&oacute;n</th>
-                            <th>fecha</th>
-                            <th>Hora</th>
-                            <th colspan="2">
-                                <html:submit property="add" value="add"></html:submit>
-                                </th>
-                            </tr>
-                    </html:form>
-                    <logic:iterate name="lista" id="lista">
-                        <html:form action="/publicaciones" >
+                    <html:form action="/publicaciones.do" >
+                        <table>
                             <tr>
-                                <td><html:text name="lista" property="idPublicacion" /></td>
-                                <td><html:text name="lista" property="nick" /></td>
-                                <td><html:text name="lista" property="idVehiculo" /></td>
-                                <td><html:text name="lista" property="nombreCiudad" /></td>
-                                <td><html:text name="lista" property="nombreUniversidad" /></td>
-                                <td><html:text name="lista" property="descripcion" /></td>
-                                <td><html:text name="lista" property="fecha" /></td>
-                                <td><html:text name="lista" property="hora" /></td>
-                                <td><html:submit property="update" value="Editar" ></html:submit></td>
-                            </html:form>
-                                <html:form action="/publicaciones" >
-                                <td><html:submit property="delete" value="Eliminar" ></html:submit></td>
+                                <th>id publicacion</th>
+                                <th>Nick</th>
+                                <th>id veh&iacute;culo</th>
+                                <th>nombre ciudad</th>
+                                <th>nombre universidad</th>
+                                <th>descripci&oacute;n</th>
+                                <th>fecha</th>
+                                <th>Hora</th>
+                                <th colspan="2">
+                                    <html:submit property="add" value="add"></html:submit>
+                                    </th>
                                 </tr>
                         </html:form>
-                    </logic:iterate>
-                </table>
-
-                <%
-                    if (request.getParameter("add") != null) {
-                        request.removeAttribute("add");
-                %>
-                <html:form action="/publicaciones">
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td><html:text name="lista" property="idPublicacion" /></td>
-                                <td><html:text name="lista" property="nick" /></td>
-                                <td><html:text name="lista" property="idVehiculo" /></td>
-                                <td><html:text name="lista" property="nombreCiudad" /></td>
-                                <td><html:text name="lista" property="nombreUniversidad" /></td>
-                                <td><html:text name="lista" property="descripcion" /></td>
-                                <td><html:text name="lista" property="fecha" /></td>
-                                <td><html:text name="lista" property="hora" /></td>
-                                <html:hidden property="save" value="si" />
-                                <td><html:image styleClass="boton1" src="imagenes/save.png"/></td>
-                            </tr>
-                        </tbody>
+                        <logic:iterate name="lista" id="lista">
+                            <html:form action="/publicaciones.do" >
+                                <tr>
+                                    <td><html:text name="lista" property="idPublicacion" /></td>
+                                    <td><html:text name="lista" property="nick" /></td>
+                                    <td><html:text name="lista" property="idVehiculo" /></td>
+                                    <td><html:text name="lista" property="nombreCiudad" /></td>
+                                    <td><html:text name="lista" property="nombreUniversidad" /></td>
+                                    <td><html:text name="lista" property="descripcion" /></td>
+                                    <td><html:text name="lista" property="fecha" /></td>
+                                    <td><html:text name="lista" property="hora" /></td>
+                                    <html:hidden property="update" value="${lista.idPublicacion}"/>
+                                    <td><html:image styleClass="boton1" src="imagenes/save.png"/></td>
+                                </html:form>
+                                <html:form action="/publicaciones" >
+                                    <html:hidden property="delete" value="${lista.idPublicacion}"/>
+                                    <td><html:image styleClass="boton1" src="imagenes/save.png"/></td>
+                                </tr>
+                            </html:form>
+                        </logic:iterate>
                     </table>
-                </html:form>
 
-                <% }%>
-                <p>Actualizar la p&aacute;gina por cada modifiaci&oacute;n</p>
+                    <%
+                        if (request.getParameter("add") != null) {
+                            request.removeAttribute("add");
+                    %>
+                    <html:form action="/publicaciones.do">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td><html:text name="lista" property="idPublicacion" /></td>
+                                    <td><html:text name="lista" property="nick" /></td>
+                                    <td><html:text name="lista" property="idVehiculo" /></td>
+                                    <td><html:text name="lista" property="nombreCiudad" /></td>
+                                    <td><html:text name="lista" property="nombreUniversidad" /></td>
+                                    <td><html:text name="lista" property="descripcion" /></td>
+                                    <td><html:text name="lista" property="fecha" /></td>
+                                    <td><html:text name="lista" property="hora" /></td>
+                                    <td><html:submit property="save" value="Añadir" ></html:submit></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                    </html:form>
+
+                    <% }%>
+                    <p>Actualizar la p&aacute;gina por cada modifiaci&oacute;n</p>
                 </div>
             </section>  
         </div>
-        </body>
+    </body>
 </html:html>

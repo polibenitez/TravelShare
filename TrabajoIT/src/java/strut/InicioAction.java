@@ -51,14 +51,14 @@ public class InicioAction extends org.apache.struts.action.Action {
         VehiculosDao vehiculosDao = new VehiculosDao();
         Publicaciones publicaciones = new Publicaciones();
         if (request.getParameter("buscar") != null) {
-            if (request.getParameter("ciudad").trim().equals("") && request.getParameter("universidad").trim().equals("") && request.getParameter("fecha").trim().equals("")) {
+            if (((InicioActionForm)form).getCiudad().trim().equals("") && ((InicioActionForm)form).getUniversidad().trim().equals("") && request.getParameter("fecha").trim().equals("")) {
                 ActionErrors errors = new ActionErrors();
                 errors.add("faltaV", new ActionMessage("errors.viajesVacio"));
                 saveErrors(request, errors);
                 return mapping.findForward(SUCCESS);
-            } else if (!request.getParameter("ciudad").equals("") && request.getParameter("universidad").trim().equals("") && request.getParameter("fecha").trim().equals("")) {
+            } else if (!((InicioActionForm)form).getCiudad().equals("") && ((InicioActionForm)form).getUniversidad().trim().equals("") && request.getParameter("fecha").trim().equals("")) {
                 String universidad = "%";
-                List <Publicaciones> p = publicacionesDao.getList(request.getParameter("ciudad"), universidad);
+                List <Publicaciones> p = publicacionesDao.getList(((InicioActionForm)form).getCiudad(), universidad);
                 
                 if(p!=null){
                    request.setAttribute("lista", p);
@@ -83,9 +83,9 @@ public class InicioAction extends org.apache.struts.action.Action {
                     saveErrors(request, errors);
                     return mapping.findForward(SUCCESS);
                 }
-            } else if (!request.getParameter("universidad").equals("") && request.getParameter("ciudad").trim().equals("") && request.getParameter("fecha").trim().equals("")) {
+            } else if (!((InicioActionForm)form).getUniversidad().equals("") && ((InicioActionForm)form).getCiudad().trim().equals("") && request.getParameter("fecha").trim().equals("")) {
                 String ciudad = "%";
-                List <Publicaciones> p = publicacionesDao.getList(ciudad, request.getParameter("universidad"));
+                List <Publicaciones> p = publicacionesDao.getList(ciudad, ((InicioActionForm)form).getUniversidad());
                 if(p!=null){
                    request.setAttribute("lista", p);
                     return mapping.findForward(BUSCAR); 
@@ -95,8 +95,8 @@ public class InicioAction extends org.apache.struts.action.Action {
                     saveErrors(request, errors);
                     return mapping.findForward(SUCCESS);
                 }
-            } else if(!request.getParameter("universidad").equals("") && !request.getParameter("ciudad").equals("")){
-                List <Publicaciones> p = publicacionesDao.getList(request.getParameter("ciudad"), request.getParameter("universidad"));
+            } else if(!((InicioActionForm)form).getCiudad().equals("") && !((InicioActionForm)form).getUniversidad().equals("")){
+                List <Publicaciones> p = publicacionesDao.getList(((InicioActionForm)form).getCiudad(), ((InicioActionForm)form).getUniversidad());
                 if(p!=null){
                    request.setAttribute("lista", p);
                     return mapping.findForward(BUSCAR); 

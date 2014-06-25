@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package strut;
 
 import dao.PublicacionesDao;
 import hibernate.Publicaciones;
 import hibernate.Usuarios;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -40,33 +41,51 @@ public class PublicacionesAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        
+
         PublicacionesDao publicacionesDao = new PublicacionesDao();
         Publicaciones publicaciones = new Publicaciones();
-        
-       // request.getSession().getAttribute("");
-        Usuarios u = (Usuarios)request.getSession().getAttribute("USER");
-        List <Publicaciones> p = publicacionesDao.getListUser(u.getNick());
-        if(p==null){
+
+        // request.getSession().getAttribute("");
+        Usuarios u = (Usuarios) request.getSession().getAttribute("USER");
+        List<Publicaciones> p = publicacionesDao.getListUser(u.getNick());
+        if (p == null) {
             p = new ArrayList<Publicaciones>();
         }
         request.setAttribute("lista", p);
-        
-        if(request.getParameter("save")!=null){
-            
+
+        if (request.getParameter("save") != null && request.getParameter("save").equals("Añadir")) {
+
             publicaciones.setNick(u.getNick());
-            publicaciones.setIdVehiculo(Integer.parseInt(request.getParameter("idVehiculo")));
-            publicaciones.setNombreCiudad(request.getParameter("nombreCiudad"));
-            publicaciones.setNombreUniversidad("nombreUniversidad");
+//            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+//            Date convertedCurrentDate = sdf.parse("2013-09-18");
             
-            publicaciones.setHora(request.getParameter("fecha"));
+            String fecha = request.getParameter("fecha");
+            SimpleDateFormat s = new SimpleDateFormat("yyyy-MM-dd");
+            java.util.Date d = s.parse(fecha);
+            
+            
+//            SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+//            Date fecha = formatoFecha.parse("2013-01-01");
+//            java.sql.Date sqlDate1 = new java.sql.Date(fecha.getTime());
+
+            
+            publicaciones.setIdVehiculo(((PublicacionesActionForm) form).getIdVehiculo());
+            publicaciones.setNombreCiudad(((PublicacionesActionForm) form).getNombreCiudad());
+            publicaciones.setNombreUniversidad(((PublicacionesActionForm) form).getNombreUniversidad());
+            publicaciones.setHora(((PublicacionesActionForm) form).getHora());
+            publicaciones.setDescripcion(((PublicacionesActionForm) form).getDescripcion());
+            publicaciones.setFecha(d);
+            
             publicacionesDao.create(publicaciones);
-            
-        }else if(request.getParameter("delete")!=null){
+
+        } else if (request.getParameter("delete") != null) {
             publicaciones = publicacionesDao.getBorrar(Integer.parseInt(request.getParameter("delete")));
             publicacionesDao.delete(publicaciones);
+        } else if(request.getParameter("update")!=null){
+            
+            
         }
-        
+
         return mapping.findForward(SUCCESS);
     }
 }
