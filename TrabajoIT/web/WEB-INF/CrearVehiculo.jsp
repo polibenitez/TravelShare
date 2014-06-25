@@ -16,7 +16,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="style.css">
-        <title>JSP Page</title>
+        <title>TravelShare</title>
     </head>
     <body>
         <div class="contenedor">
@@ -25,7 +25,8 @@
                     <h1>Veh&iacute;culos</h1>
                     <html:link action="checklogin.do" styleClass="enCabecera">Gesti&oacute;n</html:link>
                     <html:img src="imagenes/guia-menu.png" />
-                    Veh&iacute;culos              
+                    Veh&iacute;culos
+                    
                 </div>
             </header>
             <section class="login">
