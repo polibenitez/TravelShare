@@ -44,18 +44,25 @@ public class CheckLoginAction extends org.apache.struts.action.Action {
         
         String nick=((CheckLoginActionForm)form).getNick();
         String clave=((CheckLoginActionForm)form).getPass();
-        
-        Usuarios usuario=dao.get(nick);
-        if(usuario.getPass().equals(clave)){
+//        
+//        Usuarios usuario=dao.get(nick);
+//        if(usuario.getPass().equals(clave) || usuario){
+        Usuarios usuario = dao.get(nick, clave);
+        if (usuario == null) {
+            request.setAttribute("msg", "El usuario y/o la clave son incorrectas");
+            return mapping.findForward(FAILURE);
+        } else {
+            
             HttpSession sesion_actual=request.getSession(true);
+            sesion_actual.setMaxInactiveInterval(180);
             sesion_actual.setAttribute("USER", usuario);
             if(usuario.getTipo().equalsIgnoreCase("admin")){
                 return mapping.findForward(ADMIN);
             } else {
                 return mapping.findForward(USER);
             }
-        }else{
-            return mapping.findForward(FAILURE);
+//        }else{
+//            return mapping.findForward(FAILURE);
         }
         
     }

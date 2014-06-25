@@ -18,8 +18,8 @@
         <div class="contenedor">
             <header>
                 <div class="titulos">
-                    <h1>MUPOS</h1>
-                    <a href="../index.php">Principal</a>
+                    <h1>TravelShare</h1>
+                    <html:link action="/inicio.do">Principal</html:link>
                     <img src="imagenes/guia-menu.png">
                     Gesti&oacute;n
                     <img src="imagenes/guia-menu.png">

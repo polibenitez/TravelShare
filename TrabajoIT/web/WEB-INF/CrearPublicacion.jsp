@@ -23,7 +23,7 @@
             <header>
                 <div class="titulos">
                     <h1>Viajes</h1>
-                    <a href="inicio.jsp">Principal</a>
+                    <html:link action="/inicio.do">Principal</html:link>
                     <img src="images/guia-menu.png">
                     Gesti&oacute;n Publicaciones
                     <img src="images/guia-menu.png">
