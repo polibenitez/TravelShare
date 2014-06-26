@@ -45,7 +45,7 @@
                     <div class="caja" >
                         <div class="caja-top">
                             <div class="caja-titulo">Usuarios</div>
-                            <div class="caja-descrip"><html:link action="/universidades.do">Gestionar Usuarios</html:link></div>
+                            <div class="caja-descrip"><html:link action="/usuarios.do">Gestionar Usuarios</html:link></div>
                         </div>
                         <div class="caja-imagen">
                             <img draggable="false" class="caja-imagen-img" src="imagenes/gestion-img/profesor.png">

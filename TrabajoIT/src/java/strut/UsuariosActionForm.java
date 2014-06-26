@@ -3,9 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package strut;
 
+import dao.UsuariosDao;
+import hibernate.Usuarios;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionErrors;
@@ -16,8 +19,8 @@ import org.apache.struts.action.ActionMessage;
  *
  * @author francisco
  */
-public class RegistrarActionForm extends org.apache.struts.action.ActionForm {
-    
+public class UsuariosActionForm extends org.apache.struts.action.ActionForm {
+
     private String nick;
     private String nombre;
     private String apellidos;
@@ -67,6 +70,14 @@ public class RegistrarActionForm extends org.apache.struts.action.ActionForm {
         this.pass = pass;
     }
 
+    public String getRepass() {
+        return repass;
+    }
+
+    public void setRepass(String repass) {
+        this.repass = repass;
+    }
+
     public String getTipo() {
         return tipo;
     }
@@ -83,20 +94,10 @@ public class RegistrarActionForm extends org.apache.struts.action.ActionForm {
         this.sexo = sexo;
     }
 
-    public String getRepass() {
-        return repass;
-    }
-
-    public void setRepass(String repass) {
-        this.repass = repass;
-    }
-
-    
-
     /**
      *
      */
-    public RegistrarActionForm() {
+    public UsuariosActionForm() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -108,10 +109,18 @@ public class RegistrarActionForm extends org.apache.struts.action.ActionForm {
      * @param request The HTTP Request we are processing.
      * @return
      */
-    
     public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
         ActionErrors errors = new ActionErrors();
-       
+        String aux = getPass();
+        if (getPass() != null && getPass().length() < 4) {
+            UsuariosDao usuariosDao = new UsuariosDao();
+            List<Usuarios> v = usuariosDao.getList();
+            if (v == null) {
+                v = new ArrayList<Usuarios>();
+            }
+            request.setAttribute("lista", v);
+            errors.add("falta", new ActionMessage("errors.falta"));
+        }
         return errors;
     }
 }

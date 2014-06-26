@@ -16,7 +16,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="style.css">
-        <title>JSP Page</title>
+        <title>TravelShare</title>
         <script type="text/javascript" >
             $(function() {
                 $("#nick").attr("placeholder", "Nick");
