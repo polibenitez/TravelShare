@@ -49,8 +49,8 @@
             <forward name="failure" path="/login.do"/>
         </action>
         
-        <action input="/WEB-INF/gestion.jsp" name="UniversidadesActionForm" path="/universidades" scope="request" type="strut.universidadesAction">
-            <forward name="success" path="/WEB-INF/userview.jsp"/>
+        <action input="/WEB-INF/universidadesview.jsp" name="UniversidadesActionForm" path="/universidades" scope="request" type="strut.universidadesAction">
+            <forward name="success" path="/WEB-INF/universidadesview.jsp"/>
         </action>
         <action input="/WEB-INF/ciudadesview.jsp" name="CiudadesActionForm" path="/ciudadesAction" scope="request" type="strut.CiudadesAction">
             <forward name="success" path="/WEB-INF/ciudadesview.jsp"/>

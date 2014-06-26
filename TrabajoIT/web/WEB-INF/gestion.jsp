@@ -21,7 +21,7 @@
         <div class="contenedor">
             <header>
                 <div class="titulos">
-                    <h1>Gesti&oacute;n</h1>
+                    <h1>TravelShare</h1>
                     <html:link action="checklogin.do" styleClass="enCabecera">Gesti&oacute;n</html:link>
                     <html:img src="imagenes/guia-menu.png" />              
                 </div>

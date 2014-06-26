@@ -44,11 +44,7 @@ public class VehiculoAction extends org.apache.struts.action.Action {
         Vehiculo vehiculo = new Vehiculo();
         
         Usuarios u = (Usuarios) request.getSession().getAttribute("USER");
-        List<Vehiculo> v = vehiculosDao.getListUser(u.getNick());
-        if (v == null) {
-            v = new ArrayList<Vehiculo>();
-        }
-        request.setAttribute("lista", v);
+        
         
         if (request.getParameter("save") != null) {
             vehiculo.setNick(u.getNick());
@@ -63,7 +59,8 @@ public class VehiculoAction extends org.apache.struts.action.Action {
             vehiculosDao.delete(vehiculo);
         } else if (request.getParameter("update") != null) {
             
-            vehiculo = vehiculosDao.obtenerVehiculo(Integer.parseInt(request.getParameter("update")));
+            
+            vehiculo.setNick(((VehiculoActionForm) form).getNick());
             vehiculo.setMarca(((VehiculoActionForm) form).getMarca());
             vehiculo.setModelo(((VehiculoActionForm) form).getModelo());
             vehiculo.setDescripcion(((VehiculoActionForm) form).getDescripcion());
@@ -71,6 +68,11 @@ public class VehiculoAction extends org.apache.struts.action.Action {
             vehiculosDao.update(vehiculo);
         }
         
+        List<Vehiculo> v = vehiculosDao.getListUser(u.getNick());
+        if (v == null) {
+            v = new ArrayList<Vehiculo>();
+        }
+        request.setAttribute("lista", v);
         return mapping.findForward(SUCCESS);
     }
 }

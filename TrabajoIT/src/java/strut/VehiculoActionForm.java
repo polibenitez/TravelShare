@@ -6,6 +6,11 @@
 
 package strut;
 
+import dao.VehiculosDao;
+import hibernate.Usuarios;
+import hibernate.Vehiculo;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionErrors;
@@ -82,6 +87,18 @@ public class VehiculoActionForm extends org.apache.struts.action.ActionForm {
      */
     public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
         ActionErrors errors = new ActionErrors();
+        VehiculosDao vehiculosDao = new VehiculosDao();
+        Usuarios u = (Usuarios) request.getSession().getAttribute("USER");
+        List<Vehiculo> v = vehiculosDao.getListUser(u.getNick());
+        
+        if((getModelo()!=null && getModelo().trim().equals("")) || (getMarca()!=null && getMarca().trim().equals("")) || (getDescripcion()!=null && getDescripcion().trim().equals(""))){
+            
+        if (v == null) {
+            v = new ArrayList<Vehiculo>();
+        }
+        request.setAttribute("lista", v);
+            errors.add("falta", new ActionMessage("errors.falta"));
+        }
         
         return errors;
     }

@@ -6,6 +6,10 @@
 
 package strut;
 
+import dao.UniversidadesDao;
+import hibernate.Universidades;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
@@ -35,7 +39,25 @@ public class universidadesAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        
+        UniversidadesDao universidadesDao = new UniversidadesDao();
+        Universidades universidades = new Universidades();
+
+        if (request.getParameter("delete") != null) {
+            
+            universidades = universidadesDao.get(request.getParameter("delete"));
+            universidadesDao.delete(universidades);
+            
+        } else if (request.getParameter("save") != null) {
+            
+            universidades.setNombre((((UniversidadesActionForm) form).getNombre().toLowerCase()));
+            universidadesDao.create(universidades);
+        }
+
+        List<Universidades> v = universidadesDao.getList();
+        if (v == null) {
+            v = new ArrayList<Universidades>();
+        }
+        request.setAttribute("lista", v);
         return mapping.findForward(SUCCESS);
     }
 }

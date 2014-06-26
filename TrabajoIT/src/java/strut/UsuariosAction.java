@@ -53,7 +53,17 @@ public class UsuariosAction extends org.apache.struts.action.Action {
             usuarios.setPass(((UsuariosActionForm) form).getPass());
             usuarios.setTipo(((UsuariosActionForm) form).getTipo());
             usuarios.setSexo(((UsuariosActionForm) form).getSexo());
-            
+            usuariosDao.create(usuarios);
+        } else if (request.getParameter("update") != null) {
+
+            usuarios = usuariosDao.obtenerUsuario(request.getParameter("update"));
+            usuarios.setNombre(((UsuariosActionForm) form).getNombre());
+            usuarios.setApellidos(((UsuariosActionForm) form).getApellidos());
+            usuarios.setEmail(((UsuariosActionForm) form).getEmail());
+            usuarios.setPass(((UsuariosActionForm) form).getPass());
+            usuarios.setTipo(((UsuariosActionForm) form).getTipo().toLowerCase());
+            usuarios.setSexo(((UsuariosActionForm) form).getSexo().toLowerCase());
+            usuariosDao.update(usuarios);
         }
         List<Usuarios> v = usuariosDao.getList();
         if (v == null) {

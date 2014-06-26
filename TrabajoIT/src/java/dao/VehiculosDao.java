@@ -107,4 +107,13 @@ public class VehiculosDao {
         }
         return object;
     }
+    
+    public List<Vehiculo> getList() {
+        hSession.clear();
+        Query q = hSession.createQuery("from Vehiculo");
+        List<Vehiculo> lista=q.list();
+        if(!lista.isEmpty())
+            return lista;
+        return null;
+    }
 }
