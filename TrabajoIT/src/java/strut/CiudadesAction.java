@@ -7,6 +7,9 @@ package strut;
 
 import dao.CiudadesDao;
 import hibernate.Ciudades;
+import hibernate.Usuarios;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
@@ -37,11 +40,21 @@ public class CiudadesAction extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         CiudadesDao dao = new CiudadesDao();
-        Ciudades user = new Ciudades();
+
+        Ciudades ciudad = new Ciudades();
+
         request.setAttribute("lista", dao.getList());
+        Usuarios u = (Usuarios) request.getSession().getAttribute("USER");
+
+        List<Ciudades> p = dao.getList();
+        if (p == null) {
+            p = new ArrayList<Ciudades>();
+        }
+        request.setAttribute("lista", p);
+
         if (request.getParameter("delete") != null) {
-            user = dao.get(request.getParameter("delete"));
-            dao.delete(user);
+            ciudad = dao.get(request.getParameter("delete"));
+            dao.delete(ciudad);
         } else if (request.getParameter("update") != null) {
 
 //            String fechaEntrada = request.getParameter("fechaEntrada");
@@ -49,19 +62,19 @@ public class CiudadesAction extends org.apache.struts.action.Action {
 //            if (fechaSalida.equals("")) {
 //                fechaSalida = "-";
 //            }
-            user = dao.get(request.getParameter("update"));
+            ciudad = dao.get(request.getParameter("update"));
 
-            //user = cv.obtenerVehiculo(request.getParameter("update"));
-            user.setNombre(request.getParameter("nombre"));
-            //user.setIdCiudad(Integer.parseInt(request.getParameter("id")));
+            //ciudad = cv.obtenerVehiculo(request.getParameter("update"));
+            ciudad.setNombre(request.getParameter("nombre"));
+            //ciudad.setIdCiudad(Integer.parseInt(request.getParameter("id")));
 
-            dao.update(user);
+            dao.update(ciudad);
 
         } else if (request.getParameter("save") != null) {
 
-            user.setNombre(request.getParameter("nombre"));
+            ciudad.setNombre(request.getParameter("nombre"));
 
-            dao.create(user);
+            dao.create(ciudad);
         }
         //return mapping.findForward(ADMINVIEW);
         return mapping.findForward(SUCCESS);
