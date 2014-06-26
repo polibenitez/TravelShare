@@ -39,71 +39,24 @@ public class CiudadesAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-<<<<<<< HEAD
+
         CiudadesDao ciudadesDao = new CiudadesDao();
         Ciudades ciudades = new Ciudades();
 
-        //Usuarios u = (Usuarios) request.getSession().getAttribute("USER");
-
         if (request.getParameter("delete") != null) {
+            
             ciudades = ciudadesDao.get(request.getParameter("delete"));
             ciudadesDao.delete(ciudades);
-        } else if (request.getParameter("update") != null) {
-
-            ciudades = ciudadesDao.get(request.getParameter("update"));
-
-            ciudades.setNombre(request.getParameter("nombre"));
-
-            ciudadesDao.update(ciudades);
-
+            
         } else if (request.getParameter("save") != null) {
-
+            
             ciudades.setNombre(request.getParameter("nombre"));
-
             ciudadesDao.create(ciudades);
         }
 
         List<Ciudades> v = ciudadesDao.getList();
         if (v == null) {
             v = new ArrayList<Ciudades>();
-=======
-        CiudadesDao dao = new CiudadesDao();
-
-        Ciudades ciudad = new Ciudades();
-
-        request.setAttribute("lista", dao.getList());
-        Usuarios u = (Usuarios) request.getSession().getAttribute("USER");
-
-        List<Ciudades> p = dao.getList();
-        if (p == null) {
-            p = new ArrayList<Ciudades>();
-        }
-        request.setAttribute("lista", p);
-
-        if (request.getParameter("delete") != null) {
-            ciudad = dao.get(request.getParameter("delete"));
-            dao.delete(ciudad);
-        } else if (request.getParameter("update") != null) {
-
-//            String fechaEntrada = request.getParameter("fechaEntrada");
-//            String fechaSalida = request.getParameter("fechaSalida");
-//            if (fechaSalida.equals("")) {
-//                fechaSalida = "-";
-//            }
-            ciudad = dao.get(request.getParameter("update"));
-
-            //ciudad = cv.obtenerVehiculo(request.getParameter("update"));
-            ciudad.setNombre(request.getParameter("nombre"));
-            //ciudad.setIdCiudad(Integer.parseInt(request.getParameter("id")));
-
-            dao.update(ciudad);
-
-        } else if (request.getParameter("save") != null) {
-
-            ciudad.setNombre(request.getParameter("nombre"));
-
-            dao.create(ciudad);
->>>>>>> FETCH_HEAD
         }
         request.setAttribute("lista", v);
         return mapping.findForward(SUCCESS);

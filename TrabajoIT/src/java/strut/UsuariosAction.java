@@ -23,7 +23,6 @@ public class UsuariosAction extends org.apache.struts.action.Action {
 
     /* forward name="success" path="" */
     private static final String SUCCESS = "success";
-    private static final String FAILURE = "failure";
 
     /**
      * This is the action called from the Struts framework.
@@ -54,14 +53,7 @@ public class UsuariosAction extends org.apache.struts.action.Action {
             usuarios.setPass(((UsuariosActionForm) form).getPass());
             usuarios.setTipo(((UsuariosActionForm) form).getTipo());
             usuarios.setSexo(((UsuariosActionForm) form).getSexo());
-
-            if (usuarios != null) {
-                usuariosDao.create(usuarios);
-            } else {
-                
-                return mapping.findForward(FAILURE);
-            }
-
+            
         }
         List<Usuarios> v = usuariosDao.getList();
         if (v == null) {
