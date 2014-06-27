@@ -50,7 +50,7 @@ public class CiudadesAction extends org.apache.struts.action.Action {
             
         } else if (request.getParameter("save") != null) {
             
-            ciudades.setNombre(request.getParameter("nombre"));
+            ciudades.setNombre((((CiudadesActionForm) form).getNombre().toLowerCase()));
             ciudadesDao.create(ciudades);
         }
 

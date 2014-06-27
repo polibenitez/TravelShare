@@ -3,9 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package strut;
 
+import dao.UsuariosDao;
+import hibernate.Usuarios;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionErrors;
@@ -17,7 +21,7 @@ import org.apache.struts.action.ActionMessage;
  * @author francisco
  */
 public class RegistrarActionForm extends org.apache.struts.action.ActionForm {
-    
+
     private String nick;
     private String nombre;
     private String apellidos;
@@ -91,8 +95,6 @@ public class RegistrarActionForm extends org.apache.struts.action.ActionForm {
         this.repass = repass;
     }
 
-    
-
     /**
      *
      */
@@ -108,10 +110,9 @@ public class RegistrarActionForm extends org.apache.struts.action.ActionForm {
      * @param request The HTTP Request we are processing.
      * @return
      */
-    
     public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
         ActionErrors errors = new ActionErrors();
-       
+        
         return errors;
     }
 }

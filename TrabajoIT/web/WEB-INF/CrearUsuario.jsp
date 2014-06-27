@@ -17,6 +17,14 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="style.css">
         <title>TravelShare</title>
+        <script type="text/javascript" >
+            $(function() {
+                $("#nick").attr("placeholder", "Nick");
+                $("#nombre").attr("placeholder", "Nombre");
+                $("#apellidos").attr("placeholder", "Apellidos");
+                $("#correo").attr("placeholder", "Correo").attr("type", "email");
+            });
+        </script>
     </head>
     <body>
         <div class="contenedor">
@@ -33,32 +41,36 @@
                     <html:form action="/usuarios.do" >
                         <div class="error">
                             <html:errors property="falta"></html:errors>
-                        </div>
-                        <table>
-                            <tr>
-                                <th>Nick</th>
-                                <th>Nombre</th>
-                                <th>Apellidos</th>
-                                <th>Email</th>
-                                <th>Contrase&ntilde;a</th>
-                                <th>Tipo</th>
-                                <th>Sexo</th>
-                                
-                                <th colspan="2">
+                            <html:errors property="login"></html:errors>
+                            <html:errors property="passCort"></html:errors>
+                            <html:errors property="sexo"></html:errors>
+                            <html:errors property="tipo"></html:errors>
+                            </div>
+                            <table>
+                                <tr>
+                                    <th>Nick</th>
+                                    <th>Nombre</th>
+                                    <th>Apellidos</th>
+                                    <th>Email</th>
+                                    <th>Contrase&ntilde;a</th>
+                                    <th>Tipo</th>
+                                    <th>Sexo</th>
+
+                                    <th colspan="2">
                                     <html:submit property="add" value="add"></html:submit>
                                     </th>
                                 </tr>
                         </html:form>
                         <logic:iterate name="lista" id="lista">
-                            <html:form action="/usuarios.do" >
+                            <html:form action="/usuarios.do" styleId="registro">
                                 <tr>
-                                    <td><html:text name="lista" property="nick" disabled="true"/></td>
-                                    <td><html:text name="lista" property="nombre" /></td>
-                                    <td><html:text name="lista" property="apellidos" /></td>
-                                    <td><html:text name="lista" property="email" /></td>
-                                    <td><html:text name="lista" property="pass" /></td>
-                                    <td><html:text name="lista" property="tipo" /></td>
-                                    <td><html:text name="lista" property="sexo" /></td>
+                                    <td><html:text name="lista" property="nick" disabled="true"></html:text></td>
+                                    <td><html:text name="lista" property="nombre" styleId="nombre"></html:text></td>
+                                    <td><html:text name="lista" property="apellidos" styleId="apellidos"></html:text></td>
+                                    <td><html:text name="lista" property="email" styleId="correo"></html:text></td>
+                                    <td><html:text name="lista" property="pass" styleId="pass"></html:text></td>
+                                    <td><html:text name="lista" property="tipo" styleId="tipo"></html:text></td>
+                                    <td><html:text name="lista" property="sexo" styleId="sexo"></html:text></td>
                                     <html:hidden property="update" value="${lista.nick}"/>
                                     <td><html:image styleClass="boton1" src="imagenes/save.png"/></td>
                                 </html:form>
@@ -68,29 +80,36 @@
                                 </tr>
                             </html:form>
                         </logic:iterate>
-                    </table>
 
-                    <%
-                        if (request.getParameter("add") != null) {
-                            request.removeAttribute("add");
-                    %>
-                    <html:form action="/usuarios.do">
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <td><html:text name="lista" property="nick" value=""/></td>
-                                    <td><html:text name="lista" property="nombre" value=""/></td>
-                                    <td><html:text name="lista" property="apellidos" value=""/></td>
-                                    <td><html:text name="lista" property="email" value=""/></td>
-                                    <td><html:text name="lista" property="pass" value=""/></td>
-                                    <td><html:text name="lista" property="tipo" value=""/></td>
-                                    <td><html:text name="lista" property="sexo" value=""/></td>
-                                    <td><html:submit property="save" value="Añadir" ></html:submit></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                    </html:form>
-                    <% }%>
+                        <%
+                            if (request.getParameter("add") != null) {
+                                request.removeAttribute("add");
+                        %>
+                        <html:form action="/usuarios.do" styleId="registro">
+                            <tr>
+                                <td><html:text property="nick" styleId="nick"></html:text></td>
+                                <td><html:text property="nombre" styleId="nombre"></html:text></td>
+                                <td><html:text property="apellidos" styleId="apellidos"></html:text></td>
+                                <td><html:text property="email" styleId="correo"></html:text></td>
+                                <td><html:text property="pass" styleId="pass"></html:text></td>
+                                <td>
+                                    <html:select property="tipo" styleClass="sel">
+                                        <html:option value="admin">Admin</html:option>
+                                        <html:option value="normal">Normal</html:option>
+                                    </html:select>
+                                </td>
+                                <td>
+                                    <html:select property="sexo" styleClass="sel">
+                                        <html:option value="hombre">Hombre</html:option>
+                                        <html:option value="mujer">Mujer</html:option>
+                                    </html:select>
+                                </td>
+                                <td><html:submit property="save" value="Añadir" ></html:submit></td>
+                                </tr>
+
+                        </html:form>
+                        <% }%>
+                    </table>
                 </div>
             </section>  
         </div>

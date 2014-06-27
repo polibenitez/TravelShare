@@ -11,6 +11,11 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="style.css">
         <title>TravelShare</title>
+        <script type="text/javascript" >
+            $(function() {
+                $("#nombre").attr("placeholder", "Nombre");
+            });
+        </script>
     </head>
     <body>
         <div class="contenedor">
@@ -26,7 +31,11 @@
             </header>
             <section class="login">
                 <div id="tablaCrud">
-                    <html:form action="/ciudadesAction.do" >
+                    <html:form action="/ciudadesAction.do">
+                        <div class="error">
+                            <html:errors property="ciudad"></html:errors>
+                            <html:errors property="existe"></html:errors>
+                            </div>
                         <table>
                             <tr>
                                 <th>Nombre Ciudad</th>
@@ -44,24 +53,23 @@
                                 </tr>
                             </html:form>
                         </logic:iterate>
-                    </table>
 
-                    <%
-                        if (request.getParameter("add") != null) {
-                            request.removeAttribute("add");
-                    %>
-                    <html:form action="/ciudadesAction.do">
-                        <table>
+                        <%
+                            if (request.getParameter("add") != null) {
+                                request.removeAttribute("add");
+                        %>
+                        <html:form action="/ciudadesAction.do">
                             <tbody>
                                 <tr>
-                                    <td><html:text name="lista" property="nombre" /></td>
+                                    <td><html:text property="nombre" styleId="nombre"></html:text></td>
                                     <td><html:submit property="save" value="Añadir" ></html:submit></td>
                                     </tr>
                                 </tbody>
-                            </table>
-                    </html:form>
 
-                    <% }%>
+                        </html:form>
+
+                        <% }%>
+                    </table>
                 </div>
             </section>  
         </div>

@@ -8,6 +8,7 @@ package strut;
 import dao.CiudadesDao;
 import hibernate.Ciudades;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
@@ -21,41 +22,17 @@ import org.apache.struts.action.ActionMessage;
  */
 public class CiudadesActionForm extends org.apache.struts.action.ActionForm {
 
-    private String name;
+    private String nombre;
 
-    private int number;
-
-    /**
-     * @return
-     */
-    public String getName() {
-        return name;
+    public String getNombre() {
+        return nombre;
     }
 
-    /**
-     * @param string
-     */
-    public void setName(String string) {
-        name = string;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
-
-    /**
-     * @return
-     */
-    public int getNumber() {
-        return number;
-    }
-
-    /**
-     * @param i
-     */
-    public void setNumber(int i) {
-        number = i;
-    }
-
-    /**
-     *
-     */
+    
+    
     public CiudadesActionForm() {
         super();
         // TODO Auto-generated constructor stub
@@ -70,16 +47,28 @@ public class CiudadesActionForm extends org.apache.struts.action.ActionForm {
      */
     public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
         ActionErrors errors = new ActionErrors();
-        if (getName() == null || getName().length() < 1) {
-            errors.add("name", new ActionMessage("error.name.required"));
-            CiudadesDao ciudadesDao = new CiudadesDao();
-            List<Ciudades> v = ciudadesDao.getList();
+        CiudadesDao ciudadesDao = new CiudadesDao();
+        List<Ciudades> v = ciudadesDao.getList();
+        if (getNombre() != null && getNombre().trim().equals("")) {
+
             if (v == null) {
                 v = new ArrayList<Ciudades>();
             }
             request.setAttribute("lista", v);
+            errors.add("ciudad", new ActionMessage("errors.ciudad"));
         }
-
+        
+        Iterator<Ciudades> it = v.iterator();
+        while(it.hasNext()){
+            if(it.next().getNombre().equals(getNombre())){
+                if (v == null) {
+                v = new ArrayList<Ciudades>();
+            }
+            request.setAttribute("lista", v);
+            errors.add("existe", new ActionMessage("errors.existe"));
+            }
+        }
+        
         return errors;
     }
 }

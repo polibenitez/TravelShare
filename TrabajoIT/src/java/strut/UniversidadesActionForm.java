@@ -6,6 +6,11 @@
 
 package strut;
 
+import dao.UniversidadesDao;
+import hibernate.Universidades;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionErrors;
@@ -18,26 +23,16 @@ import org.apache.struts.action.ActionMessage;
  */
 public class UniversidadesActionForm extends org.apache.struts.action.ActionForm {
     
-    private String name;
-    
-   
+    private String nombre;
 
-    /**
-     * @return
-     */
-    public String getName() {
-        return name;
+    public String getNombre() {
+        return nombre;
     }
 
-    /**
-     * @param string
-     */
-    public void setName(String string) {
-        name = string;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
-
     
-
     /**
      *
      */
@@ -55,9 +50,26 @@ public class UniversidadesActionForm extends org.apache.struts.action.ActionForm
      */
     public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
         ActionErrors errors = new ActionErrors();
-        if (getName() == null || getName().length() < 1) {
-            errors.add("name", new ActionMessage("error.name.required"));
-            // TODO: add 'error.name.required' key to your resources
+        UniversidadesDao universidadesDao = new UniversidadesDao();
+        List<Universidades> v = universidadesDao.getList();
+        if (getNombre() != null && getNombre().trim().equals("")) {
+
+            if (v == null) {
+                v = new ArrayList<Universidades>();
+            }
+            request.setAttribute("lista", v);
+            errors.add("universidad", new ActionMessage("errors.universidad"));
+        }
+        
+        Iterator<Universidades> it = v.iterator();
+        while(it.hasNext()){
+            if(it.next().getNombre().equalsIgnoreCase(getNombre())){
+                if (v == null) {
+                v = new ArrayList<Universidades>();
+            }
+            request.setAttribute("lista", v);
+            errors.add("exist", new ActionMessage("errors.exist"));
+            }
         }
         return errors;
     }
