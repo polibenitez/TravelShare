@@ -82,7 +82,22 @@ public class VehiculoActionForm extends org.apache.struts.action.ActionForm {
      */
     public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
         ActionErrors errors = new ActionErrors();
-        
+        if (getNick() == null || getNick().length() < 1) {
+            errors.add("nick", new ActionMessage("error.usuario.required"));
+            // TODO: add 'error.nick.required' key to your resources
+        }
+        if (getModelo() == null || getModelo().length() < 1) {
+           errors.add("modelo", new ActionMessage("error.modelo.required"));
+            // TODO: add 'error.nick.required' key to your resources
+        }
+        if (getMarca() == null || getMarca().length() < 1) {
+            errors.add("Marca", new ActionMessage("error.marca.required"));
+            // TODO: add 'error.nick.required' key to your resources
+        }
+        if (getDescripcion() == null || getDescripcion().length() < 1) {
+           errors.add("descripcion", new ActionMessage("error.descripcion.required"));
+            // TODO: add 'error.nick.required' key to your resources
+        }
         return errors;
     }
 }
