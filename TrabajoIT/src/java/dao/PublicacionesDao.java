@@ -7,6 +7,7 @@
 package dao;
 
 import hibernate.Publicaciones;
+import java.util.Iterator;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -97,6 +98,20 @@ public class PublicacionesDao {
         hSession.update(v);
         hSession.getTransaction().commit();
 
+    }
+    public Publicaciones obtenerPublicacion(int id) {
+
+        org.hibernate.Transaction tx = hSession.beginTransaction();
+        Query q = hSession.createQuery("from Publicaciones where id_publicacion = '" + id + "' ");
+        List li = (List<Publicaciones>) q.list();
+
+        Iterator<Publicaciones> it = li.iterator();
+        Publicaciones object = null;
+        boolean entra = false;
+        while (it.hasNext()) {
+            object = it.next();
+        }
+        return object;
     }
     
 }

@@ -59,8 +59,8 @@ public class VehiculoAction extends org.apache.struts.action.Action {
             vehiculosDao.delete(vehiculo);
         } else if (request.getParameter("update") != null) {
             
+            vehiculo=vehiculosDao.obtenerVehiculo(Integer.parseInt(request.getParameter("update")));
             
-            vehiculo.setNick(((VehiculoActionForm) form).getNick());
             vehiculo.setMarca(((VehiculoActionForm) form).getMarca());
             vehiculo.setModelo(((VehiculoActionForm) form).getModelo());
             vehiculo.setDescripcion(((VehiculoActionForm) form).getDescripcion());

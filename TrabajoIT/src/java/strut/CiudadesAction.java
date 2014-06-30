@@ -18,7 +18,7 @@ import org.apache.struts.action.ActionMapping;
 
 /**
  *
- * @author MAMISHO
+ * @author manolo
  */
 public class CiudadesAction extends org.apache.struts.action.Action {
 
@@ -39,7 +39,6 @@ public class CiudadesAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-
 
         CiudadesDao ciudadesDao = new CiudadesDao();
         Ciudades ciudades = new Ciudades();

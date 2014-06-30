@@ -58,16 +58,11 @@
         <action input="/WEB-INF/CrearPublicacion.jsp" name="PublicacionesActionForm" path="/publicaciones" scope="request" type="strut.PublicacionesAction">
             <forward name="success" path="/WEB-INF/CrearPublicacion.jsp"/>
         </action>
-<<<<<<< HEAD
-        <action input="/" name="CiudadesActionForm" path="/cuidades" scope="request" type="strut.CiudadesAction">
-            <forward name="success" path="/cuidadesview.jsp"/>
-=======
         <action input="/WEB-INF/CrearVehiculo.jsp" name="VehiculoActionForm" path="/vehiculo" scope="request" type="strut.VehiculoAction">
             <forward name="success" path="/WEB-INF/CrearVehiculo.jsp"/>
         </action>
         <action input="/WEB-INF/CrearUsuario.jsp" name="UsuariosActionForm" path="/usuarios" scope="request" type="strut.UsuariosAction">
             <forward name="success" path="/WEB-INF/CrearUsuario.jsp"/>
->>>>>>> FETCH_HEAD
         </action>
         
 

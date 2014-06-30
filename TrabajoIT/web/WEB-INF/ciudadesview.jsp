@@ -47,9 +47,15 @@
                         <logic:iterate name="lista" id="lista">
                             <html:form action="/ciudadesAction.do" >
                                 <tr>
-                                    <td><html:text name="lista" property="nombre" disabled="true"/></td>
-                                    <html:hidden property="delete" value="${lista.nombre}"/>
+                                    <td><html:text name="lista" property="nombre" /></td>
+                                    <html:hidden property="update" value="${lista.nombre}"/>
                                     <td><html:image styleClass="boton1" src="imagenes/save.png"/></td>
+                                    </html:form>
+                       
+                                    <html:form action="/ciudadesAction.do" >
+                                        <html:hidden property="delete" value="${lista.nombre}"/>
+                                        <td><html:image styleClass="boton1" src="imagenes/delete.png"/></td>
+                                    
                                 </tr>
                             </html:form>
                         </logic:iterate>

@@ -6,6 +6,11 @@
 
 package strut;
 
+import dao.VehiculosDao;
+import hibernate.Usuarios;
+import hibernate.Vehiculo;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionErrors;
@@ -82,22 +87,20 @@ public class VehiculoActionForm extends org.apache.struts.action.ActionForm {
      */
     public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
         ActionErrors errors = new ActionErrors();
-        if (getNick() == null || getNick().length() < 1) {
-            errors.add("nick", new ActionMessage("error.usuario.required"));
-            // TODO: add 'error.nick.required' key to your resources
-        }
-        if (getModelo() == null || getModelo().length() < 1) {
-           errors.add("modelo", new ActionMessage("error.modelo.required"));
-            // TODO: add 'error.nick.required' key to your resources
-        }
-        if (getMarca() == null || getMarca().length() < 1) {
-            errors.add("Marca", new ActionMessage("error.marca.required"));
-            // TODO: add 'error.nick.required' key to your resources
-        }
-        if (getDescripcion() == null || getDescripcion().length() < 1) {
-           errors.add("descripcion", new ActionMessage("error.descripcion.required"));
-            // TODO: add 'error.nick.required' key to your resources
-        }
+        
+        VehiculosDao vehiculosDao = new VehiculosDao();
+         Usuarios u = (Usuarios) request.getSession().getAttribute("USER");
+         List<Vehiculo> v = vehiculosDao.getListUser(u.getNick());
+         
+         if((getModelo()!=null && getModelo().trim().equals("")) || (getMarca()!=null && getMarca().trim().equals("")) || (getDescripcion()!=null && getDescripcion().trim().equals(""))){
+             
+         if (v == null) {
+             v = new ArrayList<Vehiculo>();
+         }
+         request.setAttribute("lista", v);
+             errors.add("falta", new ActionMessage("errors.falta"));
+         }
+          
         return errors;
     }
 }
