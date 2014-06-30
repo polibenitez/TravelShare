@@ -67,7 +67,7 @@
                                 </html:form>
                                 <html:form action="/vehiculo" >
                                     <html:hidden property="delete" value="${lista.idVehiculo}"/>
-                                    <td><html:image styleClass="boton1" src="imagenes/delete.png"/></td>
+                                    <td><html:image styleClass="boton1" src="imagenes/save.png"/></td>
                                 </tr>
                             </html:form>
                         </logic:iterate>
