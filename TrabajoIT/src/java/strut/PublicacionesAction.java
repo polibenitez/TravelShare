@@ -5,8 +5,12 @@
  */
 package strut;
 
+import dao.CiudadesDao;
 import dao.PublicacionesDao;
+import dao.UniversidadesDao;
+import hibernate.Ciudades;
 import hibernate.Publicaciones;
+import hibernate.Universidades;
 import hibernate.Usuarios;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -44,48 +48,74 @@ public class PublicacionesAction extends org.apache.struts.action.Action {
 
         PublicacionesDao publicacionesDao = new PublicacionesDao();
         Publicaciones publicaciones = new Publicaciones();
+        
+        UniversidadesDao universidadesDao = new UniversidadesDao();
+        Universidades universidades = new Universidades();
+        
+        CiudadesDao ciudadesDao = new CiudadesDao();
+        Ciudades ciudades = new Ciudades();
 
         // request.getSession().getAttribute("");
         Usuarios u = (Usuarios) request.getSession().getAttribute("USER");
-        List<Publicaciones> p = publicacionesDao.getListUser(u.getNick());
-        if (p == null) {
-            p = new ArrayList<Publicaciones>();
-        }
-        request.setAttribute("lista", p);
-
-        if (request.getParameter("save") != null && request.getParameter("save").equals("Añadir")) {
+        String save=request.getParameter("save");
+        if (request.getParameter("save") != null && request.getParameter("save").equals("Anadir")) {
 
             publicaciones.setNick(u.getNick());
-//            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-//            Date convertedCurrentDate = sdf.parse("2013-09-18");
-            
-            String fecha = request.getParameter("fecha");
-            SimpleDateFormat s = new SimpleDateFormat("yyyy-MM-dd");
-            java.util.Date d = s.parse(fecha);
-            
-            
-//            SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
-//            Date fecha = formatoFecha.parse("2013-01-01");
-//            java.sql.Date sqlDate1 = new java.sql.Date(fecha.getTime());
 
-            
+            String fecha = ((PublicacionesActionForm) form).getFecha();
+            SimpleDateFormat s = new SimpleDateFormat("yyyy-MM-dd");
+            Date d = s.parse(fecha);
+                      
             publicaciones.setIdVehiculo(((PublicacionesActionForm) form).getIdVehiculo());
             publicaciones.setNombreCiudad(((PublicacionesActionForm) form).getNombreCiudad());
             publicaciones.setNombreUniversidad(((PublicacionesActionForm) form).getNombreUniversidad());
             publicaciones.setHora(((PublicacionesActionForm) form).getHora());
             publicaciones.setDescripcion(((PublicacionesActionForm) form).getDescripcion());
             publicaciones.setFecha(d);
-            
+
             publicacionesDao.create(publicaciones);
 
         } else if (request.getParameter("delete") != null) {
             publicaciones = publicacionesDao.getBorrar(Integer.parseInt(request.getParameter("delete")));
             publicacionesDao.delete(publicaciones);
-        } else if(request.getParameter("update")!=null){
-            
-            
-        }
+        } else if (request.getParameter("update") != null) {
+            publicaciones=publicacionesDao.obtenerPublicacion(Integer.parseInt(request.getParameter("update")));
+            publicaciones.setNick(u.getNick());
+            String fecha = ((PublicacionesActionForm) form).getFecha();
+            SimpleDateFormat s = new SimpleDateFormat("yyyy-MM-dd");
+            Date d = s.parse(fecha);
+            publicaciones.setIdVehiculo(((PublicacionesActionForm) form).getIdVehiculo());
+            publicaciones.setNombreCiudad(((PublicacionesActionForm) form).getNombreCiudad());
+            publicaciones.setNombreUniversidad(((PublicacionesActionForm) form).getNombreUniversidad());
+            publicaciones.setHora(((PublicacionesActionForm) form).getHora());
+            publicaciones.setDescripcion(((PublicacionesActionForm) form).getDescripcion());
+            publicaciones.setFecha(d);
 
+            publicacionesDao.update(publicaciones);
+        }
+        
+        List<Publicaciones> p = publicacionesDao.getListUser(u.getNick());
+        if (p == null) {
+            p = new ArrayList<Publicaciones>();
+        }
+        
+        request.setAttribute("lista", p);
+        
+        
+        List<Ciudades> v2 = ciudadesDao.getList();
+        if (v2 == null) {
+            v2 = new ArrayList<Ciudades>();
+        }
+        request.setAttribute("lista2", v2);
+        
+        
+         List<Universidades> v3 = universidadesDao.getList();
+        if (v3 == null) {
+            v3= new ArrayList<Universidades>();
+        }
+        request.setAttribute("lista3", v3);
+        
+        
         return mapping.findForward(SUCCESS);
     }
 }

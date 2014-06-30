@@ -7,6 +7,7 @@
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
 
+
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
@@ -16,14 +17,15 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="style.css">
-        <title>JSP Page</title>
+        <title>TravelShare</title>
+        </script>
     </head>
     <body>
         <div class="contenedor">
             <header>
                 <div class="titulos">
                     <h1>Publicaciones</h1>
-                    <html:link action="userview.jsp" styleClass="enCabecera">Gesti&oacute;n</html:link>
+                    <html:link action="checklogin.do" styleClass="enCabecera">Gesti&oacute;n</html:link>
                     <html:img src="imagenes/guia-menu.png" />
                     Publicaciones              
                 </div>
@@ -33,8 +35,7 @@
                     <html:form action="/publicaciones.do" >
                         <table>
                             <tr>
-                                <th>id publicacion</th>
-                                <th>Nick</th>
+
                                 <th>id veh&iacute;culo</th>
                                 <th>nombre ciudad</th>
                                 <th>nombre universidad</th>
@@ -49,20 +50,21 @@
                         <logic:iterate name="lista" id="lista">
                             <html:form action="/publicaciones.do" >
                                 <tr>
-                                    <td><html:text name="lista" property="idPublicacion" /></td>
-                                    <td><html:text name="lista" property="nick" /></td>
+
+
                                     <td><html:text name="lista" property="idVehiculo" /></td>
+                                    
                                     <td><html:text name="lista" property="nombreCiudad" /></td>
                                     <td><html:text name="lista" property="nombreUniversidad" /></td>
                                     <td><html:text name="lista" property="descripcion" /></td>
-                                    <td><html:text name="lista" property="fecha" /></td>
+                                    <td><input type="date" name="fecha" id="fecha" value="${lista.fecha}"/></td>
                                     <td><html:text name="lista" property="hora" /></td>
                                     <html:hidden property="update" value="${lista.idPublicacion}"/>
                                     <td><html:image styleClass="boton1" src="imagenes/save.png"/></td>
                                 </html:form>
                                 <html:form action="/publicaciones" >
                                     <html:hidden property="delete" value="${lista.idPublicacion}"/>
-                                    <td><html:image styleClass="boton1" src="imagenes/save.png"/></td>
+                                    <td><html:image styleClass="boton1" src="imagenes/delete.png"/></td>
                                 </tr>
                             </html:form>
                         </logic:iterate>
@@ -76,15 +78,20 @@
                         <table>
                             <tbody>
                                 <tr>
-                                    <td><html:text name="lista" property="idPublicacion" /></td>
-                                    <td><html:text name="lista" property="nick" /></td>
+
+
                                     <td><html:text name="lista" property="idVehiculo" /></td>
-                                    <td><html:text name="lista" property="nombreCiudad" /></td>
-                                    <td><html:text name="lista" property="nombreUniversidad" /></td>
+                                    <td><html:select property="nombreCiudad">
+                                        <html:options collection="lista2" property="nombre" labelProperty="nombre"/>
+                                     </html:select></td>
+                                    
+                                    <td><html:select property="nombreUniversidad">
+                                        <html:options collection="lista3" property="nombre" labelProperty="nombre"/>
+                                     </html:select></td>
                                     <td><html:text name="lista" property="descripcion" /></td>
-                                    <td><html:text name="lista" property="fecha" /></td>
+                                    <td><input type="date" name="fecha" id="fecha"/></td>
                                     <td><html:text name="lista" property="hora" /></td>
-                                    <td><html:submit property="save" value="Añadir" ></html:submit></td>
+                                    <td><html:submit property="save" value="Anadir" >Añadir</html:submit></td>
                                     </tr>
                                 </tbody>
                             </table>

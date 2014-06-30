@@ -7,6 +7,8 @@
 
 <struts-config>
     <form-beans>
+        <form-bean name="UsuariosActionForm" type="strut.UsuariosActionForm"/>
+        <form-bean name="VehiculoActionForm" type="strut.VehiculoActionForm"/>
         <form-bean name="PublicacionesActionForm" type="strut.PublicacionesActionForm"/>
         <form-bean name="CiudadesActionForm" type="strut.CiudadesActionForm"/>
         <form-bean name="UniversidadesActionForm" type="strut.UniversidadesActionForm"/>
@@ -47,8 +49,8 @@
             <forward name="failure" path="/login.do"/>
         </action>
         
-        <action input="/WEB-INF/gestion.jsp" name="UniversidadesActionForm" path="/universidades" scope="request" type="strut.universidadesAction">
-            <forward name="success" path="/WEB-INF/userview.jsp"/>
+        <action input="/WEB-INF/universidadesview.jsp" name="UniversidadesActionForm" path="/universidades" scope="request" type="strut.universidadesAction">
+            <forward name="success" path="/WEB-INF/universidadesview.jsp"/>
         </action>
         <action input="/WEB-INF/ciudadesview.jsp" name="CiudadesActionForm" path="/ciudadesAction" scope="request" type="strut.CiudadesAction">
             <forward name="success" path="/WEB-INF/ciudadesview.jsp"/>
@@ -56,8 +58,16 @@
         <action input="/WEB-INF/CrearPublicacion.jsp" name="PublicacionesActionForm" path="/publicaciones" scope="request" type="strut.PublicacionesAction">
             <forward name="success" path="/WEB-INF/CrearPublicacion.jsp"/>
         </action>
+<<<<<<< HEAD
         <action input="/" name="CiudadesActionForm" path="/cuidades" scope="request" type="strut.CiudadesAction">
             <forward name="success" path="/cuidadesview.jsp"/>
+=======
+        <action input="/WEB-INF/CrearVehiculo.jsp" name="VehiculoActionForm" path="/vehiculo" scope="request" type="strut.VehiculoAction">
+            <forward name="success" path="/WEB-INF/CrearVehiculo.jsp"/>
+        </action>
+        <action input="/WEB-INF/CrearUsuario.jsp" name="UsuariosActionForm" path="/usuarios" scope="request" type="strut.UsuariosAction">
+            <forward name="success" path="/WEB-INF/CrearUsuario.jsp"/>
+>>>>>>> FETCH_HEAD
         </action>
         
 

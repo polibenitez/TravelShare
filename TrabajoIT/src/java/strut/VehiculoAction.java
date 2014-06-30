@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package strut;
 
-import dao.CiudadesDao;
-import hibernate.Ciudades;
+import dao.VehiculosDao;
 import hibernate.Usuarios;
+import hibernate.Vehiculo;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -18,9 +19,9 @@ import org.apache.struts.action.ActionMapping;
 
 /**
  *
- * @author MAMISHO
+ * @author francisco
  */
-public class CiudadesAction extends org.apache.struts.action.Action {
+public class VehiculoAction extends org.apache.struts.action.Action {
 
     /* forward name="success" path="" */
     private static final String SUCCESS = "success";
@@ -39,41 +40,37 @@ public class CiudadesAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-<<<<<<< HEAD
-        CiudadesDao dao = new CiudadesDao();
-        Ciudades user = new Ciudades();
-        request.setAttribute("lista", dao.getList());
-        if (request.getParameter("delete") != null) {
-            user = dao.get(request.getParameter("delete"));
-            dao.delete(user);
+        VehiculosDao vehiculosDao = new VehiculosDao();
+        Vehiculo vehiculo = new Vehiculo();
+        
+        Usuarios u = (Usuarios) request.getSession().getAttribute("USER");
+        
+        
+        if (request.getParameter("save") != null) {
+            vehiculo.setNick(u.getNick());
+            
+            vehiculo.setMarca(((VehiculoActionForm) form).getMarca());
+            vehiculo.setModelo(((VehiculoActionForm) form).getModelo());
+            vehiculo.setDescripcion(((VehiculoActionForm) form).getDescripcion());
+            
+            vehiculosDao.create(vehiculo);
+        } else if (request.getParameter("delete") != null) {
+            vehiculo = vehiculosDao.getBorrar(Integer.parseInt(request.getParameter("delete")));
+            vehiculosDao.delete(vehiculo);
         } else if (request.getParameter("update") != null) {
-
-//            String fechaEntrada = request.getParameter("fechaEntrada");
-//            String fechaSalida = request.getParameter("fechaSalida");
-//            if (fechaSalida.equals("")) {
-//                fechaSalida = "-";
-//            }
-            user = dao.get(request.getParameter("update"));
-=======
->>>>>>> FETCH_HEAD
-
-        CiudadesDao ciudadesDao = new CiudadesDao();
-        Ciudades ciudades = new Ciudades();
-
-        if (request.getParameter("delete") != null) {
             
-            ciudades = ciudadesDao.get(request.getParameter("delete"));
-            ciudadesDao.delete(ciudades);
+            vehiculo=vehiculosDao.obtenerVehiculo(Integer.parseInt(request.getParameter("update")));
             
-        } else if (request.getParameter("save") != null) {
+            vehiculo.setMarca(((VehiculoActionForm) form).getMarca());
+            vehiculo.setModelo(((VehiculoActionForm) form).getModelo());
+            vehiculo.setDescripcion(((VehiculoActionForm) form).getDescripcion());
             
-            ciudades.setNombre((((CiudadesActionForm) form).getNombre().toLowerCase()));
-            ciudadesDao.create(ciudades);
+            vehiculosDao.update(vehiculo);
         }
-
-        List<Ciudades> v = ciudadesDao.getList();
+        
+        List<Vehiculo> v = vehiculosDao.getListUser(u.getNick());
         if (v == null) {
-            v = new ArrayList<Ciudades>();
+            v = new ArrayList<Vehiculo>();
         }
         request.setAttribute("lista", v);
         return mapping.findForward(SUCCESS);

@@ -15,56 +15,54 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="style.css">
-        <title>JSP Page</title>
+        <title>TravelShare</title>
     </head>
     <body>
         <div class="contenedor">
             <header>
                 <div class="titulos">
-                    <h1>Viajes</h1>
-                    <html:link action="/inicio.do" styleClass="enCabecera">Principal</html:link>
-                    <html:img src="imagenes/guia-menu.png" />
-                    Gesti&oacute;n
-                    <html:img src="imagenes/guia-menu.png" />
+                    <h1>TravelShare</h1>
+                    <html:link action="checklogin.do" styleClass="enCabecera">Gesti&oacute;n</html:link>
+                    <html:img src="imagenes/guia-menu.png" />              
                 </div>
                 <div class="entrar">
                     <a><html:link action="/inicio.do">Salir</html:link></a>
-                    
-                </div>
-            </header>
-            <section class="login">
-                <div class="cajas">
-                    <div class="caja" onclick="irAPagina('gestion-edificios')">
-                        <div class="caja-top">
-                            <div class="caja-titulo">Ciudades</div>
-                            <div class="caja-descrip"><html:link action="/ciudadesAction.do">Gestionar Ciudades</html:link></div>
-                        </div>
-                        <div class="caja-imagen">
-                            <img draggable="false" class="caja-imagen-img" src="imagenes/gestion-img/edificio.jpg">
-                        </div>
 
                     </div>
-                    <div class="caja" onclick="irAPagina('gestion-profesores')">
-                        <div class="caja-top">
-                            <div class="caja-titulo">Usuarios</div>
-                            <div class="caja-descrip"><html:link action="/universidades.do">Gestionar Usuarios</html:link></div>
+                </header>
+                <section class="login">
+                    <div class="cajas">
+                        <div class="caja">
+                            <div class="caja-top">
+                                <div class="caja-titulo">Ciudades</div>
+                                <div class="caja-descrip"><html:link action="/ciudadesAction.do">Gestionar Ciudades</html:link></div>
+                            </div>
+                            <div class="caja-imagen">
+                                <img draggable="false" class="caja-imagen-img" src="imagenes/gestion-img/edificio.jpg">
+                            </div>
+
                         </div>
-                        <div class="caja-imagen">
-                            <img draggable="false" class="caja-imagen-img" src="imagenes/gestion-img/profesor.png">
+                        <div class="caja" >
+                            <div class="caja-top">
+                                <div class="caja-titulo">Usuarios</div>
+                                <div class="caja-descrip"><html:link action="/usuarios.do">Gestionar Usuarios</html:link></div>
+                            </div>
+                            <div class="caja-imagen">
+                                <img draggable="false" class="caja-imagen-img" src="imagenes/gestion-img/profesor.png">
+                            </div>
+
                         </div>
 
-                    </div>
-                    
-                    <div class="caja" onclick="irAPagina('gestion-aulas')">
-                        <div class="caja-top">
-                            <div class="caja-titulo">Universidades</div>
-                            <div class="caja-descrip"><html:link action="/universidades.do">Gestionar Universidades</html:link></div>
+                        <div class="caja">
+                            <div class="caja-top">
+                                <div class="caja-titulo">Universidades</div>
+                                <div class="caja-descrip"><html:link action="/universidades.do">Gestionar Universidades</html:link></div>
                         </div>
                         <div class="caja-imagen">
                             <img draggable="false" class="caja-imagen-img" src="imagenes/gestion-img/aula.jpg">
                         </div>
                     </div>
-                    
+
                 </div>
             </section>
         </div>

@@ -7,6 +7,7 @@
 package dao;
 
 import hibernate.Usuarios;
+import java.util.Iterator;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -81,6 +82,19 @@ public class UsuariosDao {
 
     }
 
-    
+    public Usuarios obtenerUsuario(String id) {
+
+        org.hibernate.Transaction tx = hSession.beginTransaction();
+        Query q = hSession.createQuery("from Usuarios where nick = '" + id + "' ");
+        List li = (List<Usuarios>) q.list();
+
+        Iterator<Usuarios> it = li.iterator();
+        Usuarios object = null;
+        boolean entra = false;
+        while (it.hasNext()) {
+            object = it.next();
+        }
+        return object;
+    }
 }
 

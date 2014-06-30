@@ -15,7 +15,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="style.css">
-        <title>JSP Page</title>
+        <title>TravelShare</title>
     </head>
     <body>
         <logic:notEmpty name="lista" scope="request">
@@ -27,7 +27,7 @@
                         <html:link action="/inicio.do" styleClass="enCabecera">Principal</html:link>
                         <html:img src="imagenes/guia-menu.png" />
                         Viajes
-                        <html:img src="imagenes/guia-menu.png" />
+                        
                     </div>
                 </header>
                 <section class="login">
