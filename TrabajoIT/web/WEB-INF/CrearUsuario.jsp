@@ -15,7 +15,17 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <!--<link rel="stylesheet" type="text/css" href="style.css">-->
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700" rel="stylesheet" />
+        <script src="js/jquery.min.js"></script>
+        <script src="js/config.js"></script>
+        <script src="js/skel.min.js"></script>
+        <script src="js/skel-panels.min.js"></script>
+        <noscript>
+        <link rel="stylesheet" href="css/skel-noscript.css" />
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/style-desktop.css" />
+        </noscript>
         <title>TravelShare</title>
         <script type="text/javascript" >
             $(function() {
@@ -27,17 +37,29 @@
         </script>
     </head>
     <body>
-        <div class="contenedor">
-            <header>
-                <div class="titulos">
-                    <h1>Gesti&oacute;n</h1>
-                    <html:link action="checklogin.do" styleClass="enCabecera">Gesti&oacute;n</html:link>
-                    <html:img src="imagenes/guia-menu.png" />
-                    Usuarios
-                </div>
-            </header>
-            <section class="login">
-                <div id="tablaCrud">
+        <div id="header-wrapper">
+            <header class="container" id="site-header">
+                <div class="row">
+                    <div class="12u">
+                        <div id="logo">
+
+                            <html:link action="/inicio.do" style="text-decoration:none;"><h1>TravelShare</h1></html:link>
+                            </div>
+                            <nav id="nav">
+                                <ul>
+                                    <li><html:link action="/inicio.do" styleClass="enCabecera">Principal</html:link></li>
+                                <li><html:link action="/login.do">Iniciar Sesi&oacute;n</html:link></li>
+                                <li class="current_page_item"><html:link action="/registro.do">Registrarse</html:link></li>
+                                <li><html:link action="/inicio.do">C&oacute;mo funciona</html:link></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </header>
+            </div>
+            <div class="contenedor">
+                <section class="login">
+                    <div id="tablaCrud">
                     <html:form action="/usuarios.do" >
                         <div class="error">
                             <html:errors property="falta"></html:errors>
@@ -92,7 +114,7 @@
                                 <td><html:text property="apellidos" styleId="apellidos"></html:text></td>
                                 <td><html:text property="email" styleId="correo"></html:text></td>
                                 <td><html:text property="pass" styleId="pass"></html:text></td>
-                                <td>
+                                    <td>
                                     <html:select property="tipo" styleClass="sel">
                                         <html:option value="admin">Admin</html:option>
                                         <html:option value="normal">Normal</html:option>
