@@ -5,9 +5,8 @@
         <group>
             <file>file:/C:/Users/manolo/Documents/GitHub/TravelShare/TrabajoIT/src/java/strut/PublicacionesActionForm.java</file>
             <file>file:/C:/Users/manolo/Documents/GitHub/TravelShare/TrabajoIT/src/java/strut/CiudadesAction.java</file>
-            <file>file:/C:/Users/manolo/Documents/GitHub/TravelShare/TrabajoIT/src/java/strut/VehiculoAction.java</file>
-            <file>file:/C:/Users/manolo/Documents/GitHub/TravelShare/TrabajoIT/src/java/dao/CiudadesDao.java</file>
-            <file>file:/C:/Users/manolo/Documents/GitHub/TravelShare/TrabajoIT/src/java/strut/VehiculoActionForm.java</file>
+            <file>file:/C:/Users/manolo/Documents/GitHub/TravelShare/TrabajoIT/src/java/strut/universidadesAction.java</file>
+            <file>file:/C:/Users/manolo/Documents/GitHub/TravelShare/TrabajoIT/src/java/dao/UniversidadesDao.java</file>
             <file>file:/C:/Users/manolo/Documents/GitHub/TravelShare/TrabajoIT/src/java/strut/PublicacionesAction.java</file>
             <file>file:/C:/Users/manolo/Documents/GitHub/TravelShare/TrabajoIT/src/java/dao/PublicacionesDao.java</file>
             <file>file:/C:/Users/manolo/Documents/GitHub/TravelShare/TrabajoIT/web/WEB-INF/CrearPublicacion.jsp</file>

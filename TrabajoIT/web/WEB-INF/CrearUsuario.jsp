@@ -76,7 +76,7 @@
                                 </html:form>
                                 <html:form action="/usuarios" >
                                     <html:hidden property="delete" value="${lista.nick}"/>
-                                    <td><html:image styleClass="boton1" src="imagenes/save.png"/></td>
+                                    <td><html:image styleClass="boton1" src="imagenes/delete.png"/></td>
                                 </tr>
                             </html:form>
                         </logic:iterate>
