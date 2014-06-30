@@ -7,6 +7,7 @@
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
 
+
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
@@ -17,6 +18,36 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="style.css">
         <title>TravelShare</title>
+        <link rel="stylesheet" type="text/css" href="jquery-ui-1.7.2.custom.css" />
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
+        <script type="text/javascript">
+            jQuery(function($) {
+                $.datepicker.regional['es'] = {
+                    closeText: 'Cerrar',
+                    prevText: '&#x3c;Ant',
+                    nextText: 'Sig&#x3e;',
+                    currentText: 'Hoy',
+                    monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+                        'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                    monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun',
+                        'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                    dayNames: ['Domingo', 'Lunes', 'Martes', 'Mi&eacute;rcoles', 'Jueves', 'Viernes', 'S&aacute;bado'],
+                    dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mi&eacute;', 'Juv', 'Vie', 'S&aacute;b'],
+                    dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'S&aacute;'],
+                    weekHeader: 'Sm',
+                    dateFormat: 'yy-mm-dd',
+                    firstDay: 1,
+                    isRTL: false,
+                    showMonthAfterYear: false,
+                    yearSuffix: ''};
+                $.datepicker.setDefaults($.datepicker.regional['es']);
+            });
+
+            $(document).ready(function() {
+                $("#datepicker").datepicker();
+            });
+        </script>
     </head>
     <body>
         <div class="contenedor">
@@ -33,8 +64,7 @@
                     <html:form action="/publicaciones.do" >
                         <table>
                             <tr>
-                                <th>id publicacion</th>
-                                <th>Nick</th>
+
                                 <th>id veh&iacute;culo</th>
                                 <th>nombre ciudad</th>
                                 <th>nombre universidad</th>
@@ -49,20 +79,20 @@
                         <logic:iterate name="lista" id="lista">
                             <html:form action="/publicaciones.do" >
                                 <tr>
-                                    <td><html:text name="lista" property="idPublicacion" /></td>
-                                    <td><html:text name="lista" property="nick" /></td>
+
+
                                     <td><html:text name="lista" property="idVehiculo" /></td>
                                     <td><html:text name="lista" property="nombreCiudad" /></td>
                                     <td><html:text name="lista" property="nombreUniversidad" /></td>
                                     <td><html:text name="lista" property="descripcion" /></td>
-                                    <td><html:text name="lista" property="fecha" /></td>
+                                    <td><input type="text" name="datepicker" id="datepicker" readonly="readonly" size="12" value="${lista.fecha}"/></td>
                                     <td><html:text name="lista" property="hora" /></td>
                                     <html:hidden property="update" value="${lista.idPublicacion}"/>
                                     <td><html:image styleClass="boton1" src="imagenes/save.png"/></td>
                                 </html:form>
                                 <html:form action="/publicaciones" >
                                     <html:hidden property="delete" value="${lista.idPublicacion}"/>
-                                    <td><html:image styleClass="boton1" src="imagenes/save.png"/></td>
+                                    <td><html:image styleClass="boton1" src="imagenes/delete.png"/></td>
                                 </tr>
                             </html:form>
                         </logic:iterate>
@@ -76,13 +106,13 @@
                         <table>
                             <tbody>
                                 <tr>
-                                    <td><html:text name="lista" property="idPublicacion" /></td>
-                                    <td><html:text name="lista" property="nick" /></td>
+
+
                                     <td><html:text name="lista" property="idVehiculo" /></td>
                                     <td><html:text name="lista" property="nombreCiudad" /></td>
                                     <td><html:text name="lista" property="nombreUniversidad" /></td>
                                     <td><html:text name="lista" property="descripcion" /></td>
-                                    <td><html:text name="lista" property="fecha" /></td>
+                                    <td><input type="text" name="datepicker" id="datepicker" readonly="readonly" size="12" value="${lista.fecha}"/></td>
                                     <td><html:text name="lista" property="hora" /></td>
                                     <td><html:submit property="save" value="Añadir" ></html:submit></td>
                                     </tr>

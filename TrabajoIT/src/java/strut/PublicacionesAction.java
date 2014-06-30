@@ -51,13 +51,12 @@ public class PublicacionesAction extends org.apache.struts.action.Action {
         if (request.getParameter("save") != null && request.getParameter("save").equals("Añadir")) {
 
             publicaciones.setNick(u.getNick());
-//            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-//            Date convertedCurrentDate = sdf.parse("2013-09-18");
 
-            String fecha = request.getParameter("fecha");
-            SimpleDateFormat s = new SimpleDateFormat("yyyy-MM-dd");
-            java.util.Date d = s.parse(fecha);
-
+//            String fecha = ((PublicacionesActionForm) form).getFecha();
+//            SimpleDateFormat s = new SimpleDateFormat("yyyy-MM-dd");
+//            java.util.Date d = null;
+//            d=s.parse(fecha);
+            
 //            SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
 //            Date fecha = formatoFecha.parse("2013-01-01");
 //            java.sql.Date sqlDate1 = new java.sql.Date(fecha.getTime());
@@ -66,7 +65,7 @@ public class PublicacionesAction extends org.apache.struts.action.Action {
             publicaciones.setNombreUniversidad(((PublicacionesActionForm) form).getNombreUniversidad());
             publicaciones.setHora(((PublicacionesActionForm) form).getHora());
             publicaciones.setDescripcion(((PublicacionesActionForm) form).getDescripcion());
-            publicaciones.setFecha(d);
+            publicaciones.setFecha(((PublicacionesActionForm) form).getFecha());
 
             publicacionesDao.create(publicaciones);
 

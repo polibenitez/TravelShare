@@ -6,7 +6,7 @@
 
 package strut;
 
-import java.util.Date;
+import java.sql.Date;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionErrors;

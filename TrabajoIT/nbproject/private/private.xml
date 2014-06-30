@@ -3,13 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/manolo/Documents/GitHub/TravelShare/TrabajoIT/src/java/strut/CheckLoginAction.java</file>
-            <file>file:/C:/Users/manolo/Documents/GitHub/TravelShare/TrabajoIT/web/WEB-INF/gestion.jsp</file>
-            <file>file:/C:/Users/manolo/Documents/GitHub/TravelShare/TrabajoIT/web/WEB-INF/userview.jsp</file>
+            <file>file:/C:/Users/manolo/Documents/GitHub/TravelShare/TrabajoIT/src/java/strut/PublicacionesActionForm.java</file>
             <file>file:/C:/Users/manolo/Documents/GitHub/TravelShare/TrabajoIT/src/java/strut/CiudadesAction.java</file>
-            <file>file:/C:/Users/manolo/Documents/GitHub/TravelShare/TrabajoIT/src/java/strut/PublicacionesAction.java</file>
-            <file>file:/C:/Users/manolo/Documents/GitHub/TravelShare/TrabajoIT/src/java/strut/VehiculoActionForm.java</file>
             <file>file:/C:/Users/manolo/Documents/GitHub/TravelShare/TrabajoIT/src/java/strut/VehiculoAction.java</file>
+            <file>file:/C:/Users/manolo/Documents/GitHub/TravelShare/TrabajoIT/src/java/dao/CiudadesDao.java</file>
+            <file>file:/C:/Users/manolo/Documents/GitHub/TravelShare/TrabajoIT/src/java/strut/VehiculoActionForm.java</file>
+            <file>file:/C:/Users/manolo/Documents/GitHub/TravelShare/TrabajoIT/src/java/strut/PublicacionesAction.java</file>
+            <file>file:/C:/Users/manolo/Documents/GitHub/TravelShare/TrabajoIT/src/java/dao/PublicacionesDao.java</file>
+            <file>file:/C:/Users/manolo/Documents/GitHub/TravelShare/TrabajoIT/web/WEB-INF/CrearPublicacion.jsp</file>
         </group>
     </open-files>
 </project-private>
