@@ -16,7 +16,7 @@ import org.apache.struts.action.ActionMapping;
 
 /**
  *
- * @author manolo
+ * @author MAMISHO
  */
 public class CiudadesAction extends org.apache.struts.action.Action {
 
@@ -37,7 +37,7 @@ public class CiudadesAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-         CiudadesDao dao = new CiudadesDao();
+        CiudadesDao dao = new CiudadesDao();
         Ciudades user = new Ciudades();
         request.setAttribute("lista", dao.getList());
         if (request.getParameter("delete") != null) {

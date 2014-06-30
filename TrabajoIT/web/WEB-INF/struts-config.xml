@@ -56,6 +56,9 @@
         <action input="/WEB-INF/CrearPublicacion.jsp" name="PublicacionesActionForm" path="/publicaciones" scope="request" type="strut.PublicacionesAction">
             <forward name="success" path="/WEB-INF/CrearPublicacion.jsp"/>
         </action>
+        <action input="/" name="CiudadesActionForm" path="/cuidades" scope="request" type="strut.CiudadesAction">
+            <forward name="success" path="/cuidadesview.jsp"/>
+        </action>
         
 
         
