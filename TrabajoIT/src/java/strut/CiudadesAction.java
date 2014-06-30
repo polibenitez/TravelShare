@@ -39,23 +39,7 @@ public class CiudadesAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-<<<<<<< HEAD
-        CiudadesDao dao = new CiudadesDao();
-        Ciudades user = new Ciudades();
-        request.setAttribute("lista", dao.getList());
-        if (request.getParameter("delete") != null) {
-            user = dao.get(request.getParameter("delete"));
-            dao.delete(user);
-        } else if (request.getParameter("update") != null) {
 
-//            String fechaEntrada = request.getParameter("fechaEntrada");
-//            String fechaSalida = request.getParameter("fechaSalida");
-//            if (fechaSalida.equals("")) {
-//                fechaSalida = "-";
-//            }
-            user = dao.get(request.getParameter("update"));
-=======
->>>>>>> FETCH_HEAD
 
         CiudadesDao ciudadesDao = new CiudadesDao();
         Ciudades ciudades = new Ciudades();
